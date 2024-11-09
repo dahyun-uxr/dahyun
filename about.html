@@ -15,6 +15,7 @@
             font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
             background-color: #ffffff;
             color: #000000;
+            padding: 0;
             font-weight: 300;
             overflow-x: hidden;
         }
@@ -66,8 +67,8 @@
     
         .container {
             max-width: 800px;
-            margin: 0 auto;
-            padding: 6rem 2rem; /* 헤더 아래에 여백 추가 */
+            margin: 6rem auto;
+            padding: 2rem;
             line-height: 1.6;
         }
     
@@ -75,10 +76,13 @@
             opacity: 1;
             transform: translateY(0);
         }
-    
+
         .hidden {
             opacity: 0;
             transform: translateY(30px);
+        }
+    
+        .fade-in {
             transition: opacity 1.5s ease-out, transform 1.5s ease-out;
         }
     
@@ -135,7 +139,6 @@
     </style>
 </head>
 <body>
-    <!-- 헤더 -->
     <header class="header">
         <a href="index.html" class="logo">D.</a>
         <nav class="nav">
@@ -146,23 +149,21 @@
         <a href="#contact" class="cta-button">Contact</a>
     </header>
 
-    <!-- 본문 내용 -->
     <div class="container">
         <h1>Hello, I'm Dahyun</h1>
-        <p>UX Designer and Researcher with 10 years of background in robotics industry. Specializing in human-robot interaction design ranged from user study to developing working prototypes. Proficient in Photoshop, Illustrator, SPSS. Passionate about human-centered Design, UX Research, usability testing, and possess working knowledge of Arduino and Microsoft Office.
-        </p>
+        <p>UX Designer and Researcher with 10 years of background in robotics industry...</p>
         <p class="highlight">
-            My research pursuits are primarily centered around the field of human-robot and human-computer interaction, with a particular focus on designing interactions that evoke delight within human groups.
+            My research pursuits are primarily centered around the field of human-robot and human-computer interaction...
         </p>
         <p>
-            If you wish to learn more about my background, please review the <span class="cv-link">CV</span>. Should you find the résumé insufficient for a comprehensive understanding of my qualifications, please feel free to contact me via email.
+            If you wish to learn more, please review the <span class="cv-link">CV</span>. Feel free to contact me via email.
         </p>
         <p class="contact-info">
             <a href="mailto:contact.dahyunkang@gmail.com" class="email">contact.dahyunkang@gmail.com</a>
         </p>
 
         <!-- Experience 섹션 -->
-        <div class="experience hidden">
+        <div class="experience fade-in hidden">
             <h2>EXPERIENCE</h2>
             <div class="section-divider"></div>
             <ul>
@@ -172,29 +173,30 @@
         </div>
 
         <!-- Education 섹션 -->
-        <div class="education hidden">
+        <div class="education fade-in hidden">
             <h2>EDUCATION</h2>
             <div class="section-divider"></div>
             <ul>
                 <li><strong>2016-2019</strong><br>Ph.D. in Industrial Design, Ewha Womans University</li>
                 <li><strong>2014-2016</strong><br>M.A. in Industrial Design, Ewha Womans University</li>
-                <li><strong>2008-2013</strong><br>B.A. in Industrial Design and Consumer Science, Ewha Womans University</li>
             </ul>
         </div>
     </div>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    entry.target.classList.remove('hidden');
-                }
-            });
-        }, { threshold: 0.1 });
+        window.addEventListener('load', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        entry.target.classList.remove('hidden');
+                    }
+                });
+            }, { threshold: 0.1 });
 
-        const sections = document.querySelectorAll('.experience, .education');
-        sections.forEach(section => observer.observe(section));
+            const sections = document.querySelectorAll('.experience, .education');
+            sections.forEach(section => observer.observe(section));
+        });
     </script>
 </body>
 </html>
