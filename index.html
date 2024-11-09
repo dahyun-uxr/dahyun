@@ -110,7 +110,7 @@
         .news-item {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 1.5s ease-out;
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
         }
         
         .news-item.visible {
@@ -274,6 +274,25 @@
                 </div>
             </div>
         </section>
+        <script>
+        window.addEventListener('scroll', () => {
+            const newsItems = document.querySelectorAll('.news-item');
+            newsItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                // 화면에 보일 때 `visible` 클래스를 추가
+                if (rect.top < window.innerHeight - 50) {
+                    item.classList.add('visible');
+                }
+            });
+        });
+                
+       window.addEventListener('load', () => {
+            const newsItems = document.querySelectorAll('.news-item');
+            newsItems.forEach(item => {
+                item.classList.add('visible');
+            });
+        });
+    </script>
     </main>
     <a href="#" class="explore-more">EXPLORE MORE</a>
 </body>
