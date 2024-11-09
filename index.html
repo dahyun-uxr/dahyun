@@ -21,13 +21,12 @@
         .header {
             position: fixed;
             width: 100%;
-            padding: 1.5rem 4rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: #ffffff;
             z-index: 1000;
-            flex-wrap: nowrap;
         }
 
         .logo {
@@ -35,13 +34,14 @@
             font-weight: 700;
             text-decoration: none;
             color: #000000;
-            margin-right: auto;
         }
 
         .nav {
             display: flex;
-            gap: 3rem;
-            margin: 0 auto;
+            gap: 2.5rem;
+            justify-content: center;
+            flex-grow: 1;
+            text-align: center;
         }
 
         .nav a {
@@ -56,12 +56,11 @@
         .cta-button {
             background: #000000;
             color: #ffffff;
-            padding: 0.5rem 1.5rem;
+            padding: 0.5rem 1rem;
             border-radius: 100px;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 0.9rem;
-            margin-left: auto;
         }
 
         .hero {
@@ -166,13 +165,46 @@
 
         @media (max-width: 768px) {
             .header {
-                padding: 1rem 1.5rem;
-        }
+                padding: 0.5rem 1rem;
+            }
             
             .nav {
                 gap: 1.5rem; 
+            }
+           
+            .nav a {
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
         }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 0.5rem;
+            }
             
+            .nav {
+                gap: 1rem;
+            }
+            
+            .nav a {
+                font-size: 0.8rem;
+            }
+            
+            .cta-button {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.7rem;
+            }
+        }
+        
             .hero {
                 padding: 6rem 2rem 2rem;
         }
@@ -209,13 +241,13 @@
                 <h2 class="news-title">Latest News</h2>
                 <div class="news-grid">
                     <article class="news-item">
-                        <div class="news-date">October 25, 2024</div>
-                        <h3 class="news-headline">New Research Paper Published in HRI 2024</h3>
-                        <p class="news-excerpt">Our latest research on social robot interaction patterns has been accepted for publication at the HRI 2024 conference.</p>
+                        <div class="news-date">November 20, 2024</div>
+                        <h3 class="news-headline">Panel Speaker at Korea Robotics Society Annual Conference Workshop</h3>
+                        <p class="news-excerpt">I am honored to be invited as a panel speaker at the Korea Robotics Society's social robot workshop. The talk will delve into 'Invisible Robot Technologies', focusing on how unobtrusive product-type robots can seamlessly assist people in their daily lives.
                     </article>
                     <article class="news-item">
-                        <div class="news-date">November 1, 2024</div>
-                        <h3 class="news-headline">Upcoming Workshop: Future of HRI</h3>
+                        <div class="news-date">October 25, 2024</div>
+                        <h3 class="news-headline">Upcoming Book Chapter Publication</h3>
                         <p class="news-excerpt">Join us for a workshop exploring the future directions of human-robot interaction research and design.</p>
                     </article>
                 </div>
