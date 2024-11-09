@@ -231,10 +231,9 @@
                 }
             });
         }, {
-            threshold: 0.1 // 요소의 10%가 화면에 들어오면 감지
+            threshold: 0.1 
         });
 
-        // 각 섹션을 관찰 대상으로 추가
         const sections = document.querySelectorAll('.experience, .education');
         sections.forEach(section => observer.observe(section));
     </script>
