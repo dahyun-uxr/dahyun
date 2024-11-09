@@ -15,6 +15,7 @@
             font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
             background-color: #ffffff;
             color: #000000;
+            margin: 0;
             padding: 0;
             font-weight: 300;
             overflow-x: hidden;
@@ -72,14 +73,15 @@
             line-height: 1.6;
         }
     
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .hidden {
+        .experience, .education {
             opacity: 0;
             transform: translateY(30px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+        
+        .experience.visible, .education.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     
         .fade-in {
@@ -223,8 +225,7 @@
             <a href="mailto:contact.dahyunkang@gmail.com" class="email">contact.dahyunkang@gmail.com</a>
         </p>
 
-        <!-- Experience 섹션 -->
-        <div class="experience fade-in hidden">
+        <div class="experience hidden">
             <h2>EXPERIENCE</h2>
             <div class="section-divider"></div>
             <ul>
@@ -232,9 +233,9 @@
                 <li>Post Doc. Researcher</li>
             </ul>
         </div>
-
+        
         <!-- Education 섹션 -->
-        <div class="education fade-in hidden">
+        <div class="education hidden">
             <h2>EDUCATION</h2>
             <div class="section-divider"></div>
             <ul>
@@ -245,7 +246,7 @@
     </div>
 
     <script>
-        window.addEventListener('load', () => {
+        document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -254,10 +255,13 @@
                     }
                 });
             }, { threshold: 0.1 });
-
+    
             const sections = document.querySelectorAll('.experience, .education');
-            sections.forEach(section => observer.observe(section));
+            sections.forEach(section => {
+                observer.observe(section);
+            });
         });
     </script>
+
 </body>
 </html>
