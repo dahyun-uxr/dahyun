@@ -321,22 +321,20 @@
             </div>
         </section>
         <script>
-        window.addEventListener('scroll', () => {
-            const newsItems = document.querySelectorAll('.news-item, .project-item');
-            newsItems.forEach(item => {
-                const rect = item.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 50) {
-                    item.classList.add('visible');
-                }
+            // Intersection Observer 설정
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // 요소의 10%가 화면에 들어오면 감지
             });
-        });
-                
-       window.addEventListener('load', () => {
-            const newsItems = document.querySelectorAll('.news-item, .project-item');
-            newsItems.forEach(item => {
-                item.classList.add('visible');
-            });
-        });
+        
+            // 모든 뉴스 항목 및 프로젝트 항목을 관찰 대상으로 추가
+            const items = document.querySelectorAll('.news-item, .project-item');
+            items.forEach(item => observer.observe(item));
         </script>
         <section class="projects-section">
             <h2 class="projects-title">Recent Projects</h2>
