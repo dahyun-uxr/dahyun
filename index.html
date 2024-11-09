@@ -142,6 +142,7 @@
             margin-left: auto;
             margin-right: auto;
             padding: 2rem;
+            text-align: center;
         }
         
         .projects-title {
@@ -155,47 +156,32 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
         }
         
         .project-item {
-            position: relative;
-            display: block;
             width: 100%;
             max-width: 800px;
             text-decoration: none;
             overflow: hidden;
             border-radius: 10px;
             transition: transform 0.3s ease;
+            position: relative;
         }
-        
-        .project-item:hover {
-            transform: translateY(-10px);
-        }
+  
         
         .project-image {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.3s ease;
             border-radius: 10px;
         }
-        
-        .project-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: #ffffff;
-            padding: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+              
+        .project-item:hover .project-image {
+            transform: scale(1.2);
         }
-        
-        .project-item:hover .project-overlay {
-            opacity: 1;
-        }
+
         .scroll-indicator {
             width: 50px;
             height: 50px;
@@ -358,18 +344,10 @@
                 <!-- 첫 번째 프로젝트 -->
                 <a href="project1.html" class="project-item">
                     <img src="https://lh4.googleusercontent.com/PyY9zpdkjW_gYCdvyE_hK0Au_51evv-6FHzInV-tXu5dKWy-DNvxTM6K_aHoqVtwmFWH-9uM-mJXhmfMLNGufd8e82o46Fk4ElA8jkh5D5kszwCpI9mT9KkdYfNlvbSw3A=w1280" alt="Project 1" class="project-image">
-                    <div class="project-overlay">
-                        <h3 class="project-title">oOoBOT</h3>
-                        <p class="project-description">Modular robotic furniture</p>
-                    </div>
                 </a>
                 <!-- 두 번째 프로젝트 -->
                 <a href="project2.html" class="project-item">
                     <img src="https://lh4.googleusercontent.com/PyY9zpdkjW_gYCdvyE_hK0Au_51evv-6FHzInV-tXu5dKWy-DNvxTM6K_aHoqVtwmFWH-9uM-mJXhmfMLNGufd8e82o46Fk4ElA8jkh5D5kszwCpI9mT9KkdYfNlvbSw3A=w1280" alt="Project 2" class="project-image">
-                    <div class="project-overlay">
-                        <h3 class="project-title">I am Waiting</h3>
-                        <p class="project-description">Robot feedback design for response delay</p>
-                    </div>
                 </a>
             </div>
         </section>
