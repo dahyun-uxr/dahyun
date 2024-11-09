@@ -107,13 +107,13 @@
             gap: 2rem;
         }
 
-        .news-item {
+        .news-item, .project-item {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 1.5s ease-out, transform 1.5s ease-out;
         }
         
-        .news-item.visible {
+        .news-item.visible,  .project-item.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -335,7 +335,7 @@
         </section>
         <script>
         window.addEventListener('scroll', () => {
-            const newsItems = document.querySelectorAll('.news-item');
+            const newsItems = document.querySelectorAll('.news-item, .project-item');
             newsItems.forEach(item => {
                 const rect = item.getBoundingClientRect();
                 if (rect.top < window.innerHeight - 50) {
@@ -345,7 +345,7 @@
         });
                 
        window.addEventListener('load', () => {
-            const newsItems = document.querySelectorAll('.news-item');
+            const newsItems = document.querySelectorAll('.news-item, .project-item');
             newsItems.forEach(item => {
                 item.classList.add('visible');
             });
