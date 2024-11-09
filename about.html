@@ -5,233 +5,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Dahyun</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
+    body {
+        font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+        background-color: #ffffff;
+        color: #000000;
+        padding: 2rem;
+        font-weight: 300;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        line-height: 1.6;
+    }
+
+    .visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hidden {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    }
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
+
+    p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        font-weight: 300;
+    }
+
+    .section-divider {
+        width: 50%;
+        height: 1px;
+        background-color: #ddd;
+        margin: 2rem auto;
+    }
+
+    .experience, .education {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-info {
+        margin-top: 2rem;
+    }
+
+    .email {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    /* 모바일 최적화 */
+    @media (max-width: 768px) {
         body {
-            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            overflow-x: hidden;
-            padding: 2rem;
-            font-weight: 300;
-        }
-
-        
-        .header {
-            position: fixed;
-            width: 100%;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #ffffff;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: #000000;
-        }
-
-        .nav {
-            display: flex;
-            gap: 3rem;
-            justify-content: center;
-            flex-grow: 1;
-            text-align: center;
-        }
-
-        .nav a {
-            text-decoration: none;
-            color: #000000;
-            font-size: 1rem;
-            text-transform: uppercase;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-
-        .cta-button {
-            background: #000000;
-            color: #ffffff;
-            padding: 0.5rem 1rem;
-            border-radius: 100px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.9rem;
+            padding: 1rem;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            line-height: 1.6;
-        }
-
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
+            padding: 1.5rem;
         }
 
         h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-align: center;
+            font-size: 2.5rem;
         }
 
         h2 {
-            font-size: 1.5rem;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
+            font-size: 1.3rem;
+            margin-top: 2rem;
         }
 
         p {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            font-weight: 300;
-        }
-
-        .highlight {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-top: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info {
-            margin-top: 2rem;
-            font-size: 1rem;
-        }
-
-        .email {
-            color: #000000;
-            text-decoration: none;
-        }
-
-        .experience, .education {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-            margin-top: 3rem;
+            font-size: 0.9rem;
         }
 
         .section-divider {
-            width: 50%;
+            width: 70%;
             height: 1px;
-            background-color: #ddd;
-            margin: 2rem auto;
-        }
-         @media (max-width: 768px) {
-            .header {
-                padding: 0.5rem 1rem;
-            }
-            
-            .nav {
-                justify-content: center; 
-                padding-left: 0;
-                gap: 1.5rem; 
-            }
-        
-            .nav a {
-                font-size: 0.9rem;
-            }
-
-            .cta-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-            
-        @media (max-width: 480px) {
-            .header {
-                padding: 0.5rem;
-            }
-            
-            .nav {
-                gap: 1rem;
-            }
-            
-            .nav a {
-                font-size: 0.8rem;
-            }
-            
-            .cta-button {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.7rem;
-            }
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
         }
 
-        li {
-            margin-bottom: 0.5rem;
+        .experience, .education {
+            margin-top: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        body {
+            padding: 0.5rem;
         }
 
-        .cv-link {
-            color: #0000ff;
-            text-decoration: underline;
-            cursor: pointer;
+        .container {
+            padding: 1rem;
         }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 0.85rem;
+        }
+
+        .section-divider {
+            width: 80%;
+        }
+    }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Hello, I'm Dahyun</h1>
-        <p>
-            UX Designer and Researcher with 10 years of background in robotics industry. Specializing in human-robot interaction design ranged from user study to developing working prototypes. Proficient in Photoshop, Illustrator, SPSS. Passionate about human-centered Design, UX Research, usability testing, and possess working knowledge of Arduino and Microsoft Office.
-        </p>
-        <p class="highlight">
-            My research pursuits are primarily centered around the field of human-robot and human-computer interaction, with a particular focus on designing interactions that evoke delight within human groups.
-        </p>
-        <p>
-            If you wish to learn more about my background, please review the <span class="cv-link">CV</span>. Should you find the résumé insufficient for a comprehensive understanding of my qualifications, please feel free to contact me via email.
-        </p>
-        <p class="contact-info">
-            <a href="mailto:contact.dahyunkang@gmail.com" class="email">contact.dahyunkang@gmail.com</a>
-        </p>
+        <p>UX Designer and Researcher with 10 years of background in robotics industry...</p>
 
-        <div class="experience">
+        <div class="experience hidden">
             <h2>EXPERIENCE</h2>
             <div class="section-divider"></div>
             <ul>
-                <li><strong>Mar. 2019 ~ Present</strong><br>UX Designer and Researcher @ Korea Institute of Science and Technology (KIST)</li>
+                <li><strong>Mar. 2019 ~ Present</strong><br>UX Designer and Researcher @ KIST</li>
                 <li>Post Doc. Researcher</li>
             </ul>
         </div>
 
-        <div class="education">
+        <div class="education hidden">
             <h2>EDUCATION</h2>
             <div class="section-divider"></div>
             <ul>
-                <li><strong>2016-2019</strong><br>Ph.D. Department of Industrial Design<br>Ewha Womans University, Seoul, Republic of Korea</li>
-                <li><strong>2014-2016</strong><br>M.A., Department of Industrial Design<br>Ewha Womans University, Seoul, Republic of Korea</li>
-                <li><strong>2008-2013</strong><br>B.A., Department of Industrial Design and Consumer Science<br>Ewha Womans University, Seoul, Republic of Korea</li>
+                <li><strong>2016-2019</strong><br>Ph.D. in Industrial Design, Ewha Womans University</li>
+                <li><strong>2014-2016</strong><br>M.A. in Industrial Design, Ewha Womans University</li>
             </ul>
         </div>
     </div>
 
     <script>
-        // Intersection Observer 설정
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    entry.target.classList.remove('hidden');
                 }
             });
         }, {
-            threshold: 0.1 
+            threshold: 0.1
         });
 
         const sections = document.querySelectorAll('.experience, .education');
