@@ -25,9 +25,6 @@
             margin: 0 auto;
             padding: 2rem;
             line-height: 1.6;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
         }
 
         .visible {
@@ -73,9 +70,17 @@
         }
 
         .experience, .education {
-            margin-top: 2rem;
-            border-top: 1px solid #ddd;
-            padding-top: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+            margin-top: 3rem;
+        }
+
+        .section-divider {
+            width: 50%;
+            height: 1px;
+            background-color: #ddd;
+            margin: 2rem auto;
         }
 
         ul {
@@ -112,6 +117,7 @@
 
         <div class="experience">
             <h2>EXPERIENCE</h2>
+            <div class="section-divider"></div>
             <ul>
                 <li><strong>Mar. 2019 ~ Present</strong><br>UX Designer and Researcher @ Korea Institute of Science and Technology (KIST)</li>
                 <li>Post Doc. Researcher</li>
@@ -120,6 +126,7 @@
 
         <div class="education">
             <h2>EDUCATION</h2>
+            <div class="section-divider"></div>
             <ul>
                 <li><strong>2016-2019</strong><br>Ph.D. Department of Industrial Design<br>Ewha Womans University, Seoul, Republic of Korea</li>
                 <li><strong>2014-2016</strong><br>M.A., Department of Industrial Design<br>Ewha Womans University, Seoul, Republic of Korea</li>
@@ -129,13 +136,20 @@
     </div>
 
     <script>
-        window.addEventListener('scroll', () => {
-            const container = document.querySelector('.container');
-            const rect = container.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 50) {
-                container.classList.add('visible');
-            }
+        // Intersection Observer 설정
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1 // 요소의 10%가 화면에 들어오면 감지
         });
+
+        // 각 섹션을 관찰 대상으로 추가
+        const sections = document.querySelectorAll('.experience, .education');
+        sections.forEach(section => observer.observe(section));
     </script>
 </body>
 </html>
