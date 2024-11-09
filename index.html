@@ -135,6 +135,17 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
         }
+        
+        .news-item, .project-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 2s ease-out, transform 2s ease-out;
+        }
+        
+        .news-item.visible,  .project-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         .projects-section {
             margin: 6rem auto;
@@ -300,6 +311,20 @@
             handleScroll();
             window.addEventListener('scroll', handleScroll);
         });
+
+    //
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // 요소의 10%가 화면에 들어오면 감지
+            });
+            const items = document.querySelectorAll('.news-item, .project-item');
+            items.forEach(item => observer.observe(item));
+
     </script>
 
 </body>
