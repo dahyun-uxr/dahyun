@@ -135,7 +135,66 @@
             color: #444;
             line-height: 1.5;
         }
-
+        
+        .projects-section {
+            margin-top: 6rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
+        }
+        
+        .projects-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .projects-grid {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .project-item {
+            position: relative;
+            display: block;
+            width: 45%;
+            max-width: 500px;
+            text-decoration: none;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+        
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
         .scroll-indicator {
             width: 50px;
             height: 50px;
@@ -279,7 +338,6 @@
             const newsItems = document.querySelectorAll('.news-item');
             newsItems.forEach(item => {
                 const rect = item.getBoundingClientRect();
-                // 화면에 보일 때 `visible` 클래스를 추가
                 if (rect.top < window.innerHeight - 50) {
                     item.classList.add('visible');
                 }
@@ -292,7 +350,28 @@
                 item.classList.add('visible');
             });
         });
-    </script>
+        </script>
+        <section class="projects-section">
+            <h2 class="projects-title">Recent Projects</h2>
+            <div class="projects-grid">
+                <!-- 첫 번째 프로젝트 -->
+                <a href="project1.html" class="project-item">
+                    <img src="https://lh4.googleusercontent.com/PyY9zpdkjW_gYCdvyE_hK0Au_51evv-6FHzInV-tXu5dKWy-DNvxTM6K_aHoqVtwmFWH-9uM-mJXhmfMLNGufd8e82o46Fk4ElA8jkh5D5kszwCpI9mT9KkdYfNlvbSw3A=w1280" alt="Project 1" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">oOoBOT</h3>
+                        <p class="project-description">Modular robotic furniture</p>
+                    </div>
+                </a>
+                <!-- 두 번째 프로젝트 -->
+                <a href="project2.html" class="project-item">
+                    <img src="https://lh4.googleusercontent.com/PyY9zpdkjW_gYCdvyE_hK0Au_51evv-6FHzInV-tXu5dKWy-DNvxTM6K_aHoqVtwmFWH-9uM-mJXhmfMLNGufd8e82o46Fk4ElA8jkh5D5kszwCpI9mT9KkdYfNlvbSw3A=w1280" alt="Project 2" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">I am Waiting</h3>
+                        <p class="project-description">Robot feedback design for response delay</p>
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
     <a href="#" class="explore-more">EXPLORE MORE</a>
 </body>
