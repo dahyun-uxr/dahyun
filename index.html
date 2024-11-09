@@ -108,9 +108,19 @@
         }
 
         .news-item {
-            padding: 2rem;
-            background: #f8f8f8;
-            border-radius: 4px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
+        }
+        
+        .news-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .news-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .news-date {
@@ -270,7 +280,17 @@
             </div>
         </section>
     </main>
-
+        <script>
+                window.addEventListener('scroll', () => {
+                    const newsItems = document.querySelectorAll('.news-item');
+                    newsItems.forEach(item => {
+                        const rect = item.getBoundingClientRect();
+                        if (rect.top < window.innerHeight - 50) {
+                            item.classList.add('visible');
+                        }
+                    });
+                });
+        </script>
     <a href="#" class="explore-more">EXPLORE MORE</a>
 </body>
 </html>
