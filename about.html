@@ -74,13 +74,13 @@
             line-height: 1.6;
         }
     
-        .experience, .education {
+        .experience, .education, .award {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 1.5s ease-out, transform 1.5s ease-out;
         }
         
-        .experience.visible, .education.visible {
+        .experience.visible, .education.visible, .award.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -116,7 +116,7 @@
             margin: 0;
         }
     
-        .experience, .education {
+        .experience, .education, .award {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 1.5s ease-out, transform 1.5s ease-out;
@@ -247,6 +247,24 @@
         </div>
     </div>
 
+       <div class="award hidden">
+            <h2>AWARD</h2>
+            <div class="section-divider"></div>
+            <ul>
+                <li><strong>Innovative Prototype</strong><br>The 16th International Conference on Social Robotics (ICSR 2024), Robot Design Competition, Odense, Sweden, 2024.</li>
+                <li><strong>ARI Best Researcher Award</strong><br>AI & Robotics Institute, Korea Institute of Science and Technology (KIST), Seoul, South Korea, 2023.</li>
+                <li><strong>1st Prize in Hardware Category</strong><br>The 14th International Conference on Social Robotics (ICSR 2022), Robot Design Competition, Florence, Italy, 2022.</li>
+                <li><strong>Best Demonstration</strong><br>The 17th ACM/IEEE International Conference on Human-Robot Interaction (HRI 2022), Demonstration Session, Sapporo, Japan, 2022.</li>
+                <li><strong>ARI Best Researcher Award</strong><br>AI & Robotics Institute, Korea Institute of Science and Technology (KIST), Seoul, South Korea, 2021.</li>
+                <li><strong>Best Paper Candidate</strong><br>The 29th IEEE International Symposium on Robot and Human Interactive Communication (IEEE RO-MAN 2020), Oral Session, Naples, Italy., 2020.</li>               
+                <li><strong>3rd Prize</strong><br>The 10th IEEE International Conference on Social Robotics (ICSR 2018), Competition Session, Qingdao, China, 2018</li>       
+                <li><strong>Best Demonstration Nomination</strong><br>The 12th ACM/IEEE International Conference on Human-Robot Interaction (HRI 2017), Demonstration Session, Vienna, Austria, 2017.</li>
+                <li><strong>Best Late Breaking Report Nomination</strong><br>The 12th ACM/IEEE International Conference on Human-Robot Interaction (HRI 2017), Late-Breaking Report, Vienna, Austria, 2017.</li>                
+                <li><strong>Best Interactive Session Award</strong><br>The 25th IEEE International Symposium on Robot and Human Interactive Communication (RO-MAN 2016), Poster Session, New York, USA, 2016.</li>
+            </ul>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
@@ -258,7 +276,7 @@
                 });
             }, { threshold: 0.1 });
     
-            const sections = document.querySelectorAll('.experience, .education');
+            const sections = document.querySelectorAll('.experience, .education, .award');
             sections.forEach(section => {
                 observer.observe(section);
             });
