@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design - Dahyun</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button {
+            background: #000000;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Design Page Specific Styles */
+        .design-grid {
+            max-width: 1200px;
+            margin: 120px auto 0;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.02);
+        }
+
+        .project-info {
+            margin-top: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-category {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        @media (max-width: 768px) {
+            .design-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                margin-top: 100px;
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">D.</a>
+        <nav class="nav">
+            <a href="about.html">About</a>
+            <a href="design.html">Design</a>
+            <a href="research.html">Research</a>
+        </nav>
+        <a href="#contact" class="cta-button">Contact</a>
+    </header>
+
+    <main class="design-grid">
+        <a href="project1.html" class="project-card">
+            <img src="/api/placeholder/800/600" alt="oOoBOT" class="project-image">
+            <div class="project-info">
+                <h2 class="project-title">oOoBOT</h2>
+                <div class="project-category">Robotic Furniture System</div>
+                <p class="project-description">A versatile robotic furniture system that adapts its size and functionality to meet users' needs in various situations.</p>
+            </div>
+        </a>
+
+        <a href="project2.html" class="project-card">
+            <img src="/api/placeholder/800/600" alt="CollaBot" class="project-image">
+            <div class="project-info">
+                <h2 class="project-title">CollaBot</h2>
+                <div class="project-category">Library Assistant Robot</div>
+                <p class="project-description">A robotic system that assists library users through collaboration between robots, enhancing the library experience.</p>
+            </div>
+        </a>
+
+        <a href="project3.html" class="project-card">
+            <img src="/api/placeholder/800/600" alt="RoboTable" class="project-image">
+            <div class="project-info">
+                <h2 class="project-title">RoboTable</h2>
+                <div class="project-category">Interactive Furniture</div>
+                <p class="project-description">An intelligent table that responds to user behavior and adapts its height and configuration automatically.</p>
+            </div>
+        </a>
+
+        <a href="project4.html" class="project-card">
+            <img src="/api/placeholder/800/600" alt="AICompanion" class="project-image">
+            <div class="project-info">
+                <h2 class="project-title">AICompanion</h2>
+                <div class="project-category">Social Robot</div>
+                <p class="project-description">An emotionally intelligent robot designed to provide companionship and assistance in daily activities.</p>
+            </div>
+        </a>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
