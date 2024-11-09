@@ -17,6 +17,7 @@
             color: #000000;
             padding: 2rem;
             font-weight: 300;
+            overflow-x: hidden;
         }
     
         .header {
@@ -52,7 +53,7 @@
             text-transform: uppercase;
             font-weight: 300;
             letter-spacing: 0.5px;
-          }
+        }
     
         .cta-button {
             background: #000000;
@@ -62,11 +63,11 @@
             text-decoration: none;
             text-transform: uppercase;
             font-size: 0.9rem;
-            }
+        }
     
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 8rem auto; /* 헤더 아래에 공간 확보 */
             padding: 2rem;
             line-height: 1.6;
         }
@@ -132,8 +133,7 @@
             color: #000000;
             text-decoration: none;
         }
-    
-        /* 모바일 최적화 */
+
         @media (max-width: 768px) {
             body {
                 padding: 1rem;
@@ -141,28 +141,6 @@
     
             .container {
                 padding: 1.5rem;
-            }
-    
-            h1 {
-                font-size: 2.5rem;
-            }
-    
-            h2 {
-                font-size: 1.3rem;
-                margin-top: 2rem;
-            }
-    
-            p {
-                font-size: 0.9rem;
-            }
-    
-            .section-divider {
-                width: 70%;
-                height: 1px;
-            }
-    
-            .experience, .education {
-                margin-top: 2rem;
             }
         }
     
@@ -174,29 +152,25 @@
             .container {
                 padding: 1rem;
             }
-    
-            h1 {
-                font-size: 2rem;
-            }
-    
-            h2 {
-                font-size: 1.2rem;
-            }
-    
-            p {
-                font-size: 0.85rem;
-            }
-    
-            .section-divider {
-                width: 80%;
-            }
         }
     </style>
 </head>
 <body>
+    <!-- 헤더 추가 -->
+    <header class="header">
+        <a href="index.html" class="logo">D.</a>
+        <nav class="nav">
+            <a href="about.html">About</a>
+            <a href="#design">Design</a>
+            <a href="#research">Research</a>
+        </nav>
+        <a href="#contact" class="cta-button">Contact</a>
+    </header>
+
+    <!-- 본문 내용 -->
     <div class="container">
         <h1>Hello, I'm Dahyun</h1>
-        <p>UX Designer and Researcher with 10 years of background in robotics industry. Specializing in human-robot interaction design ranged from user study to developing working prototypes. Proficient in Photoshop, Illustrator, SPSS. Passionate about human-centered Design, UX Research, usability testing and possess working knowledge of Arduino and Microsoft office.
+        <p>UX Designer and Researcher with 10 years of background in robotics industry. Specializing in human-robot interaction design ranged from user study to developing working prototypes. Proficient in Photoshop, Illustrator, SPSS. Passionate about human-centered Design, UX Research, usability testing, and possess working knowledge of Arduino and Microsoft Office.
         </p>
         <p class="highlight">
             My research pursuits are primarily centered around the field of human-robot and human-computer interaction, with a particular focus on designing interactions that evoke delight within human groups.
@@ -204,6 +178,11 @@
         <p>
             If you wish to learn more about my background, please review the <span class="cv-link">CV</span>. Should you find the résumé insufficient for a comprehensive understanding of my qualifications, please feel free to contact me via email.
         </p>
+        <p class="contact-info">
+            <a href="mailto:contact.dahyunkang@gmail.com" class="email">contact.dahyunkang@gmail.com</a>
+        </p>
+
+        <!-- Experience 섹션 -->
         <div class="experience hidden">
             <h2>EXPERIENCE</h2>
             <div class="section-divider"></div>
@@ -213,16 +192,19 @@
             </ul>
         </div>
 
+        <!-- Education 섹션 -->
         <div class="education hidden">
             <h2>EDUCATION</h2>
             <div class="section-divider"></div>
             <ul>
                 <li><strong>2016-2019</strong><br>Ph.D. in Industrial Design, Ewha Womans University</li>
                 <li><strong>2014-2016</strong><br>M.A. in Industrial Design, Ewha Womans University</li>
+                <li><strong>2008-2013</strong><br>B.A. in Industrial Design and Consumer Science, Ewha Womans University</li>
             </ul>
         </div>
     </div>
 
+    <!-- Intersection Observer 스크립트 -->
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
