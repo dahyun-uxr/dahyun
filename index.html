@@ -79,7 +79,21 @@
             line-height: 1.2;
             font-weight: 900;
             margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-title .left-align {
             text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title .right-align {
+            text-align: right;
+            align-self: flex-end;
+            display: flex;
+            flex-direction: column;
         }
         
         .hero-title span {
@@ -89,6 +103,11 @@
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
 
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
         .hero-subtitle {
             font-size: 1.2rem;
             line-height: 1.6;
@@ -182,9 +201,17 @@
     </header>
 
     <main>
+
         <section class="hero">
             <div class="hero-content">
-                <h1 class="hero-title" id="hero-text">The Future of Human-Robot Interaction</h1>
+                <h1 class="hero-title" id="hero-text">
+                    <div class="left-align">The Future of</div>
+                    <div class="right-align">
+                        Human<br>
+                        Robot<br>
+                        Interaction
+                    </div>
+                </h1>
                 <p class="hero-subtitle">Exploring innovative approaches to seamless collaboration between humans and robots through advanced interaction design and research.</p>
             </div>
         </section>
@@ -192,7 +219,26 @@
         <section class="news-section">
             <h2 class="news-title">Latest News</h2>
             <div class="news-grid">
-                <!-- News items here (same as before) -->
+                <article class="news-item">
+                    <div class="news-date">November 20, 2024</div>
+                    <h3 class="news-headline">Panel Speaker at Korea Robotics Society Annual Conference Workshop</h3>
+                    <p class="news-excerpt">I am honored to be invited as a panel speaker at the Korea Robotics Society's social robot workshop. The talk will delve into 'Invisible Robot Technologies', focusing on how unobtrusive product-type robots can seamlessly assist people in their daily lives.</p>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">November 9, 2024</div>
+                    <h3 class="news-headline">Upcoming Book Chapter Publication</h3>
+                    <p class="news-excerpt">We are excited to share that our book chapter titled, "The Robotization Design of Everyday Things", will be published on November 28th in the upcoming volume Designing Interactions with Robots: Methods and Perspectives, CRC Press, 2024.</p>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">October 25, 2024</div>
+                    <h3 class="news-headline">Award-Winning Prototype at ICSR 2024</h3>
+                    <p class="news-excerpt">We are thrilled to announce that our innovative project, oOoBOT, received the Innovative Prototype Award at the ICSR 2024 Robot Design Competition. oOoBOT is a versatile robotic furniture system that adapts its size and functionality to meet users' needs in various situations.</p>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">March 10, 2024</div>
+                    <h3 class="news-headline">New Research Paper Published in HRI 2024</h3>
+                    <p class="news-excerpt">Our latest research, "Collabot: A Robotic System That Assists Library Users Through Collaboration Between Robots", has been accepted for presentation at HRI 2024. This study explores collaborative interactions between robots and users in library environments.</p>
+                </article>
             </div>
         </section>
 
@@ -211,34 +257,36 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const heroText = document.getElementById('hero-text');
-            const text = heroText.textContent;
+            const heroText = document.querySelector('.hero-title');
+            const spans = [];
             
-            // Split text into spans
-            heroText.innerHTML = text.split('').map(char => 
-                `<span style="opacity: 0; transform: translateY(20px);">${char}</span>`
-            ).join('');
+            // Process both left-align and right-align divs
+            heroText.querySelectorAll('div').forEach(div => {
+                const text = div.innerText;
+                div.innerHTML = text.split('').map(char => {
+                    const span = document.createElement('span');
+                    span.textContent = char;
+                    span.style.opacity = '0';
+                    span.style.transform = 'translateY(20px)';
+                    spans.push(span);
+                    return span.outerHTML;
+                }).join('');
+            });
             
-            const spans = heroText.querySelectorAll('span');
-            let currentIndex = 0;
-            
-            // Function to handle scroll
             const handleScroll = () => {
                 const scrollPosition = window.scrollY;
                 const windowHeight = window.innerHeight;
                 const heroHeight = heroText.offsetHeight;
                 const heroTop = heroText.offsetTop;
                 
-                // Calculate progress (0 to 1)
                 const progress = Math.min(Math.max(
                     (scrollPosition - (heroTop - windowHeight/2)) / (heroHeight + windowHeight/2),
                     0
                 ), 1);
                 
-                // Calculate how many characters should be visible
                 const visibleCount = Math.floor(progress * spans.length);
                 
-                spans.forEach((span, index) => {
+                document.querySelectorAll('.hero-title span').forEach((span, index) => {
                     if (index < visibleCount) {
                         span.style.opacity = '1';
                         span.style.transform = 'translateY(0)';
@@ -249,10 +297,10 @@
                 });
             };
             
-            // Initial call and event listener
             handleScroll();
             window.addEventListener('scroll', handleScroll);
         });
     </script>
+
 </body>
 </html>
