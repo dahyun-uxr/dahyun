@@ -15,7 +15,6 @@
             font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
             background-color: #ffffff;
             color: #000000;
-            padding: 2rem;
             font-weight: 300;
             overflow-x: hidden;
         }
@@ -67,8 +66,8 @@
     
         .container {
             max-width: 800px;
-            margin: 8rem auto; /* 헤더 아래에 공간 확보 */
-            padding: 2rem;
+            margin: 0 auto;
+            padding: 6rem 2rem; /* 헤더 아래에 여백 추가 */
             line-height: 1.6;
         }
     
@@ -133,30 +132,10 @@
             color: #000000;
             text-decoration: none;
         }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-    
-            .container {
-                padding: 1.5rem;
-            }
-        }
-    
-        @media (max-width: 480px) {
-            body {
-                padding: 0.5rem;
-            }
-    
-            .container {
-                padding: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- 헤더 추가 -->
+    <!-- 헤더 -->
     <header class="header">
         <a href="index.html" class="logo">D.</a>
         <nav class="nav">
@@ -204,7 +183,6 @@
         </div>
     </div>
 
-    <!-- Intersection Observer 스크립트 -->
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -213,9 +191,7 @@
                     entry.target.classList.remove('hidden');
                 }
             });
-        }, {
-            threshold: 0.1
-        });
+        }, { threshold: 0.1 });
 
         const sections = document.querySelectorAll('.experience, .education');
         sections.forEach(section => observer.observe(section));
