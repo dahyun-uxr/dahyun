@@ -19,6 +19,51 @@
         font-weight: 300;
     }
 
+    .header {
+        position: fixed;
+        width: 100%;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #ffffff;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: #000000;
+    }
+
+    .nav {
+        display: flex;
+        gap: 2.5rem;
+        justify-content: center;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .nav a {
+        text-decoration: none;
+        color: #000000;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+      }
+
+    .cta-button {
+        background: #000000;
+        color: #ffffff;
+        padding: 0.5rem 1rem;
+        border-radius: 100px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        }
+
     .container {
         max-width: 800px;
         margin: 0 auto;
@@ -151,8 +196,14 @@
 <body>
     <div class="container">
         <h1>Hello, I'm Dahyun</h1>
-        <p>UX Designer and Researcher with 10 years of background in robotics industry...</p>
-
+        <p>UX Designer and Researcher with 10 years of background in robotics industry. Specializing in human-robot interaction design ranged from user study to developing working prototypes. Proficient in Photoshop, Illustrator, SPSS. Passionate about human-centered Design, UX Research, usability testing and possess working knowledge of Arduino and Microsoft office.
+        </p>
+        <p class="highlight">
+            My research pursuits are primarily centered around the field of human-robot and human-computer interaction, with a particular focus on designing interactions that evoke delight within human groups.
+        </p>
+        <p>
+            If you wish to learn more about my background, please review the <span class="cv-link">CV</span>. Should you find the résumé insufficient for a comprehensive understanding of my qualifications, please feel free to contact me via email.
+        </p>
         <div class="experience hidden">
             <h2>EXPERIENCE</h2>
             <div class="section-divider"></div>
