@@ -160,16 +160,22 @@
         }
         
         .project-item {
+            position: relative;
             width: 100%;
             max-width: 800px;
             text-decoration: none;
             overflow: hidden;
             border-radius: 10px;
             transition: transform 0.3s ease;
-            position: relative;
+
+        }
+        .project-description {
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin: 0;
+            color: #ffffff;
         }
   
-        
         .project-image {
             width: 100%;
             height: auto;
@@ -179,7 +185,17 @@
         }
               
         .project-item:hover .project-image {
-            transform: scale(1.1);
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 8px;
+            opacity: 1;
         }
 
         .scroll-indicator {
@@ -331,8 +347,6 @@
             }, {
                 threshold: 0.1 // 요소의 10%가 화면에 들어오면 감지
             });
-        
-            // 모든 뉴스 항목 및 프로젝트 항목을 관찰 대상으로 추가
             const items = document.querySelectorAll('.news-item, .project-item');
             items.forEach(item => observer.observe(item));
         </script>
@@ -345,7 +359,7 @@
                 </a>
                 <!-- 두 번째 프로젝트 -->
                 <a href="project2.html" class="project-item">
-                    <img src="https://drive.google.com/uc?export=view&id=PyY9zpdkjW_gYCdvyE_hK0Au_51evv-6FHzInV-tXu5dKWy-DNvxTM6K_aHoqVtwmFWH-9uM-mJXhmfMLNGufd8e82o46Fk4ElA8jkh5D5kszwCpI9mT9KkdYfNlvbSw3A" alt="Project 1" class="project-image">
+                    <img src="https://drive.google.com/file/d/1L7nzRhpSVlRpIly4XK01gvMt_Bx5yNTK/view?usp=drive_link">
                 </a>
             </div>
         </section>
