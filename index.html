@@ -77,37 +77,40 @@
         .hero-title {
             font-size: 6rem;
             line-height: 1.2;
-            font-weight: 900;
+            font-weight: 700;
             margin-bottom: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .hero-title .left-align {
-            text-align: left;
-            margin-bottom: 1rem;
-        }
-
-        .hero-title .right-align {
-            text-align: right;
-            align-self: flex-end;
-            display: flex;
-            flex-direction: column;
         }
         
         .hero-title span {
+            display: block;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .location span {
             display: inline-block;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            transition: opacity 0.3s ease;
         }
 
+        .location span:first-child {
+            opacity: 1; /* 첫 단어는 항상 보이게 */
+        }
+
+        .location {
+            font-size: 1.5rem;
+            color: #666;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 3rem;
             }
         }
+        
         .hero-subtitle {
             font-size: 1.2rem;
             line-height: 1.6;
@@ -118,16 +121,16 @@
         }
 
         .news-section {
-            margin: 6rem auto;
+            margin: 6rem;
             max-width: 1200px;
-            padding: 0 4rem;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .news-title {
             font-size: 1.5rem;
             font-weight: 500;
             margin-bottom: 2rem;
-            text-align: left;
         }
 
         .news-grid {
@@ -145,6 +148,24 @@
         .news-item.visible,  .project-item.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-headline {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .news-excerpt {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.5;
         }
 
         .projects-section {
@@ -190,12 +211,48 @@
                 font-size: 3rem;
             }
             
+            .header {
+                padding: 0.5rem 1rem;
+            }
+            .nav {
+                justify-content: center; 
+                padding-left: 0;
+                gap: 1.5rem; 
+            }
+           
+            .nav a {
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+            
             .news-grid {
                 grid-template-columns: 1fr;
             }
             
-            .hero, .news-section, .projects-section {
-                padding: 2rem;
+        @media (max-width: 480px) {
+            .header {
+                padding: 0.5rem;
+            }
+            
+            .nav {
+                gap: 1rem;
+            }
+            
+            .nav a {
+                font-size: 0.8rem;
+            }
+            
+            .cta-button {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -216,14 +273,15 @@
         <section class="hero">
             <div class="hero-content">
                 <h1 class="hero-title" id="hero-text">
-                    <div class="left-align">The Future of</div>
-                    <div class="right-align">
-                        Human<br>
-                        Robot<br>
-                        Interaction
-                    </div>
+                    <span>Seamless</span>
+                    <span>UX Design:</span>
+                    <span>Enriching</span>
+                    <span>Everyday Life</span>
+                    <span>by Integrating</span>
+                    <span>Invisible Technologies</span>
+                    <span>into</span>
+                    <span>the Familiar</span>
                 </h1>
-                <p class="hero-subtitle">Exploring innovative approaches to seamless collaboration between humans and robots through advanced interaction design and research.</p>
             </div>
         </section>
 
