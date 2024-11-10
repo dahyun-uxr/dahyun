@@ -27,6 +27,7 @@
             align-items: center;
             background: #ffffff;
             z-index: 1000;
+            border-bottom: 1px solid #eee;
         }
 
         .logo {
@@ -65,69 +66,82 @@
 
         /* Design Page Specific Styles */
         .design-grid {
-            max-width: 1200px;
-            margin: 120px auto 0;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 4rem;
-        }
-
-        .project-card {
+            padding-top: 100px;
             display: flex;
             flex-direction: column;
-            text-decoration: none;
-            color: inherit;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            gap: 0; /* Remove gap between items */
         }
 
-        .project-card.visible {
+        .project-row {
+            display: flex;
+            width: 100%;
+            border-bottom: 1px solid #eee;
+            padding: 2rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .project-row.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
+        .project-info {
+            flex: 1;
+            padding: 2rem 4rem;
+        }
+
+        .project-image-container {
+            flex: 1;
+            padding: 2rem;
+        }
+
         .project-image {
             width: 100%;
-            aspect-ratio: 4/3;
+            height: 100%;
             object-fit: cover;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-image {
-            transform: scale(1.02);
-        }
-
-        .project-info {
-            margin-top: 1rem;
         }
 
         .project-title {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             font-weight: 500;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-family: serif;
         }
 
         .project-category {
             font-size: 1rem;
             color: #666;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .project-description {
             font-size: 1rem;
-            line-height: 1.5;
+            line-height: 1.6;
             color: #444;
+            max-width: 600px;
         }
 
         @media (max-width: 768px) {
-            .design-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                margin-top: 100px;
-                padding: 0 1.5rem;
+            .project-row {
+                flex-direction: column;
+            }
+
+            .project-info {
+                padding: 2rem;
+                order: 2;
+            }
+
+            .project-image-container {
+                padding: 0;
+                order: 1;
+            }
+
+            .project-title {
+                font-size: 2rem;
             }
         }
     </style>
@@ -144,41 +158,49 @@
     </header>
 
     <main class="design-grid">
-        <a href="project1.html" class="project-card">
-            <img src="/api/placeholder/800/600" alt="oOoBOT" class="project-image">
+        <div class="project-row">
             <div class="project-info">
                 <h2 class="project-title">oOoBOT</h2>
                 <div class="project-category">Robotic Furniture System</div>
                 <p class="project-description">A versatile robotic furniture system that adapts its size and functionality to meet users' needs in various situations.</p>
             </div>
-        </a>
+            <div class="project-image-container">
+                <img src="/api/placeholder/800/600" alt="oOoBOT" class="project-image">
+            </div>
+        </div>
 
-        <a href="project2.html" class="project-card">
-            <img src="/api/placeholder/800/600" alt="CollaBot" class="project-image">
+        <div class="project-row">
             <div class="project-info">
                 <h2 class="project-title">CollaBot</h2>
                 <div class="project-category">Library Assistant Robot</div>
                 <p class="project-description">A robotic system that assists library users through collaboration between robots, enhancing the library experience.</p>
             </div>
-        </a>
+            <div class="project-image-container">
+                <img src="/api/placeholder/800/600" alt="CollaBot" class="project-image">
+            </div>
+        </div>
 
-        <a href="project3.html" class="project-card">
-            <img src="/api/placeholder/800/600" alt="RoboTable" class="project-image">
+        <div class="project-row">
             <div class="project-info">
                 <h2 class="project-title">RoboTable</h2>
                 <div class="project-category">Interactive Furniture</div>
                 <p class="project-description">An intelligent table that responds to user behavior and adapts its height and configuration automatically.</p>
             </div>
-        </a>
+            <div class="project-image-container">
+                <img src="/api/placeholder/800/600" alt="RoboTable" class="project-image">
+            </div>
+        </div>
 
-        <a href="project4.html" class="project-card">
-            <img src="/api/placeholder/800/600" alt="AICompanion" class="project-image">
+        <div class="project-row">
             <div class="project-info">
                 <h2 class="project-title">AICompanion</h2>
                 <div class="project-category">Social Robot</div>
                 <p class="project-description">An emotionally intelligent robot designed to provide companionship and assistance in daily activities.</p>
             </div>
-        </a>
+            <div class="project-image-container">
+                <img src="/api/placeholder/800/600" alt="AICompanion" class="project-image">
+            </div>
+        </div>
     </main>
 
     <script>
@@ -193,8 +215,8 @@
                 threshold: 0.1
             });
 
-            document.querySelectorAll('.project-card').forEach(card => {
-                observer.observe(card);
+            document.querySelectorAll('.project-row').forEach(row => {
+                observer.observe(row);
             });
         });
     </script>
