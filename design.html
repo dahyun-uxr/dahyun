@@ -27,7 +27,6 @@
             align-items: center;
             background: #ffffff;
             z-index: 1000;
-            border-bottom: 1px solid #eee;
         }
 
         .logo {
@@ -126,6 +125,28 @@
         }
 
         @media (max-width: 768px) {
+            .header {
+                padding: 0.5rem 1rem;
+            }
+            .nav {
+                justify-content: center; 
+                padding-left: 0;
+                gap: 1.5rem; 
+            }
+           
+            .nav a {
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+            
             .project-row {
                 flex-direction: column;
             }
