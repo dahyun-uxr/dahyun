@@ -87,37 +87,8 @@
             transition: opacity 0.3s ease;
         }
         
-        .location span {
-            display: inline-block;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .location span:first-child {
-            opacity: 1; /* 첫 단어는 항상 보이게 */
-        }
-
-        .location {
-            font-size: 1.5rem;
-            color: #666;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease forwards 0.3s;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 4rem;
-            max-width: 600px;
-            text-align: left;
+        .hero-title span:first-child {
+            opacity: 1;
         }
 
         .news-section {
@@ -127,7 +98,7 @@
             margin-right: auto;
         }
 
-        .news-title {
+        .news-title, .projects-title {
             font-size: 1.5rem;
             font-weight: 500;
             margin-bottom: 2rem;
@@ -174,13 +145,6 @@
             padding: 0 4rem;
         }
 
-        .projects-title {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
         .projects-grid {
             display: flex;
             flex-direction: column;
@@ -193,6 +157,18 @@
             height: 400px;
             overflow: hidden;
             border-radius: 10px;
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 500;
         }
 
         .project-image {
@@ -214,6 +190,7 @@
             .header {
                 padding: 0.5rem 1rem;
             }
+            
             .nav {
                 justify-content: center; 
                 padding-left: 0;
@@ -235,6 +212,21 @@
             
             .news-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .project-item {
+                height: 200px; /* 모바일에서 높이 줄임 */
+            }
+            
+            .project-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .news-section, .projects-section {
+                padding: 0 2rem;
+                margin: 4rem auto;
             }
             
         @media (max-width: 480px) {
@@ -269,7 +261,6 @@
     </header>
 
     <main>
-
         <section class="hero">
             <div class="hero-content">
                 <h1 class="hero-title" id="hero-text">
@@ -316,9 +307,11 @@
             <div class="projects-grid">
                 <a href="project1.html" class="project-item">
                     <img src="https://drive.google.com/uc?export=view&id=PyY9zpdkjW_gYCdvyE_hK0Au_51evv-6FHzInV-tXu5dKWy-DNvxTM6K_aHoqVtwmFWH-9uM-mJXhmfMLNGufd8e82o46Fk4ElA8jkh5D5kszwCpI9mT9KkdYfNlvbSw3A" alt="Project 1" class="project-image">
+                    <div class="project-overlay">oOoBOT</div>               
                 </a>
                 <a href="collabot.html" class="project-item">
                     <img src="/dahyun/img/collabot.png" alt="Project 2" class="project-image">
+                    <div class="project-overlay">CollaBot</div>
                 </a>
             </div>
         </section>
@@ -326,9 +319,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const heroText = document.querySelectorAll('.hero-title span');
-            const allSpans = [...titleSpans];
-            const spanTriggerPoints = Array.from(allSpans).slice(1).map(span => {
+            const titleSpans = document.querySelectorAll('.hero-title span');
+            const spanTriggerPoints = Array.from(titleSpans).slice(1).map(span => {
                 const rect = span.getBoundingClientRect();
                 return rect.top + window.pageYOffset - window.innerHeight / 2;
             });
@@ -339,7 +331,7 @@
                 // 첫 번째 span은 건너뛰고 나머지 span들에 대해 처리
                 spanTriggerPoints.forEach((triggerPoint, index) => {
                     // index + 1을 해서 첫 번째 span을 건너뜀
-                    const span = allSpans[index + 1];
+                    const span = titleSpans[index + 1];
                     
                     if (scrollPosition > triggerPoint) {
                         span.style.opacity = '1';
@@ -356,7 +348,7 @@
             
             // 리사이즈 시 트리거 포인트 재계산
             window.addEventListener('resize', () => {
-                spanTriggerPoints = Array.from(allSpans).slice(1).map(span => {
+                spanTriggerPoints = Array.from(titleSpans).slice(1).map(span => {
                     const rect = span.getBoundingClientRect();
                     return rect.top + window.pageYOffset - window.innerHeight / 2;
                 });
