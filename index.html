@@ -326,51 +326,42 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const heroText = document.querySelector('.hero-title');
-            const spans = [];
-            
-            // Process both left-align and right-align divs
-            heroText.querySelectorAll('div').forEach(div => {
-                const text = div.innerText;
-                div.innerHTML = text.split('').map(char => {
-                    const span = document.createElement('span');
-                    span.textContent = char;
-                    span.style.opacity = '0';
-                    span.style.transform = 'translateY(20px)';
-                    spans.push(span);
-                    return span.outerHTML;
-                }).join('');
+            const heroText = document.querySelectorAll('.hero-title span');
+            const allSpans = [...titleSpans];
+            const spanTriggerPoints = Array.from(allSpans).slice(1).map(span => {
+                const rect = span.getBoundingClientRect();
+                return rect.top + window.pageYOffset - window.innerHeight / 2;
             });
-            
-            const handleScroll = () => {
-                const scrollPosition = window.scrollY;
-                const windowHeight = window.innerHeight;
-                const heroHeight = heroText.offsetHeight;
-                const heroTop = heroText.offsetTop;
+
+            function handleScroll() {
+                const scrollPosition = window.pageYOffset;
                 
-                const progress = Math.min(Math.max(
-                    (scrollPosition - (heroTop - windowHeight/2)) / (heroHeight + windowHeight/2),
-                    0
-                ), 1);
-                
-                const visibleCount = Math.floor(progress * spans.length);
-                
-                document.querySelectorAll('.hero-title span').forEach((span, index) => {
-                    if (index < visibleCount) {
+                // 첫 번째 span은 건너뛰고 나머지 span들에 대해 처리
+                spanTriggerPoints.forEach((triggerPoint, index) => {
+                    // index + 1을 해서 첫 번째 span을 건너뜀
+                    const span = allSpans[index + 1];
+                    
+                    if (scrollPosition > triggerPoint) {
                         span.style.opacity = '1';
-                        span.style.transform = 'translateY(0)';
                     } else {
                         span.style.opacity = '0';
-                        span.style.transform = 'translateY(20px)';
                     }
                 });
-            };
+            }
             
             handleScroll();
+            
+            // 스크롤 이벤트 리스너 등록
             window.addEventListener('scroll', handleScroll);
-        });
-
-    //
+            
+            // 리사이즈 시 트리거 포인트 재계산
+            window.addEventListener('resize', () => {
+                spanTriggerPoints = Array.from(allSpans).slice(1).map(span => {
+                    const rect = span.getBoundingClientRect();
+                    return rect.top + window.pageYOffset - window.innerHeight / 2;
+                });
+            });
+        });            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
