@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Dahyun</title>
+    <title>Design - Dahyun</title>
     <style>
         * {
             margin: 0;
@@ -18,181 +18,315 @@
             overflow-x: hidden;
         }
 
-        /* Previous CSS remains the same until experience-section */
-
-        .experience-section {
-            margin-top: 8rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-header {
+        .header {
+            position: fixed;
+            width: 100%;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 4rem;
+            align-items: center;
+            background: #ffffff;
+            z-index: 1000;
         }
 
-        .section-title {
-            font-size: 4rem;
-            font-weight: 700;
-            line-height: 1.1;
-        }
-
-        .section-subtitle {
-            color: #666;
-            font-size: 1.1rem;
-            max-width: 400px;
-            line-height: 1.6;
-        }
-
-        .experience-grid {
-            border-top: 1px solid #eee;
-        }
-
-        .experience-item {
-            display: grid;
-            grid-template-columns: 1fr 1fr 200px;
-            padding: 2rem 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .experience-role {
+        .logo {
             font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button {
+            background: #000000;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .design-grid {
+            padding: 8rem 4rem 4rem; /* 좌우 여백을 통일 */
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .project-row {
+            display: flex;
+            width: 100%;
+            padding: 2rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .project-row.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-info {
+            flex: 1.2;
+            padding: 2rem 4rem; /* 좌우 여백을 통일 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-image-container {
+            flex: 0.8;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-image:hover {
+            transform: scale(1.15);
+        }
+
+        .project-title {
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .project-category {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
-        .experience-company {
-            font-size: 1.5rem;
-        }
-
-        .experience-date {
-            font-size: 1rem;
-            color: #666;
-            text-align: right;
-        }
-
-        .download-cv {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: #000;
-            padding: 0.8rem 1.5rem;
-            border: 1px solid #000;
-            border-radius: 100px;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .download-cv:hover {
-            background: #000;
+        .tag-award {
+            background-color: #000000;
             color: #fff;
         }
 
-        @media (max-width: 968px) {
-            .section-header {
-                flex-direction: column;
-                gap: 2rem;
+        .tag-patent {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+            max-width: 600px;
+        }
+
+        @media (max-width: 1024px) {
+            .project-info {
+                padding: 2rem;
             }
 
-            .section-title {
-                font-size: 3rem;
-            }
-
-            .experience-item {
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-            }
-
-            .experience-date {
-                grid-column: 1 / -1;
-                text-align: left;
+            .project-image-container {
+                height: 350px;
             }
         }
 
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.5rem;
+            .header {
+                padding: 0.5rem 1rem;
+            }
+            
+            .nav {
+                justify-content: center; 
+                padding-left: 0;
+                gap: 1.5rem; 
+            }
+           
+            .nav a {
+                font-size: 0.9rem;
             }
 
-            .experience-item {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
+            .project-row {
+                flex-direction: column;
             }
 
-            .experience-role, .experience-company {
-                font-size: 1.2rem;
+            .project-info {
+                padding: 2rem;
+                order: 2;
+            }
+
+            .project-image-container {
+                padding: 1rem;
+                order: 1;
+                height: 300px;
+            }
+
+            .project-title {
+                font-size: 2rem;
             }
         }
-
-        /* Previous CSS remains the same */
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 0.5rem;
+            }
+            
+            .nav {
+                gap: 1rem;
+            }
+            
+            .nav a {
+                font-size: 0.8rem;
+            }
+            
+            .project-image-container {
+                height: 250px;
+            }
+            
+            .project-title {
+                font-size: 1.8rem;
+            }
+            
+            .project-description {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Previous HTML remains the same until experience-section -->
+    <header class="header">
+        <a href="index.html" class="logo">D.</a>
+        <nav class="nav">
+            <a href="about.html">About</a>
+            <a href="design.html">Design</a>
+            <a href="research.html">Research</a>
+        </nav>
+        <a href="#contact" class="cta-button">Contact</a>
+    </header>
 
-    <section class="experience-section">
-        <div class="section-header">
-            <h2 class="section-title">My Experience</h2>
-            <p class="section-subtitle">Throughout my career I've had the privilege of working with some very talented people at a great bunch of companies.</p>
+    <main class="design-grid">
+        <div class="project-row">
+            <div class="project-info">
+                <h2 class="project-title">oOoBOT</h2>
+                <div class="project-category">Robotic Furniture System</div>
+                <div class="project-tags">
+                    <span class="tag tag-award">Award</span>
+                </div>
+                <p class="project-description">A versatile robotic furniture system that adapts its size and functionality to meet users' needs in various situations.</p>
+            </div>
+            <div class="project-image-container">
+                <img src="/dahyun/img/ooobot.png" alt="oOoBOT" class="project-image">
+            </div>
+        </div>
+
+        <div class="project-row">
+            <div class="project-info">
+                <h2 class="project-title">RainbowBot</h2>
+                <div class="project-category">Robotic Tableware</div>
+                <div class="project-tags">
+                    <span class="tag tag-award">Award</span>
+                </div>
+                <p class="project-description">Robotic Tableware for Children's Dietary Habits.</p>
+            </div>
+            <div class="project-image-container">
+                <img src="/dahyun/img/rainbowbot.png" alt="RainbowBot" class="project-image">
+            </div>
         </div>
         
-        <div class="experience-grid">
-            <div class="experience-item">
-                <div class="experience-role">UX Designer and Researcher</div>
-                <div class="experience-company">KIST</div>
-                <div class="experience-date">Mar. 2019 ~ Present</div>
+        <div class="project-row">
+            <div class="project-info">
+                <h2 class="project-title">CollaBot</h2>
+                <div class="project-category">Library Assistant Robot</div>
+                <div class="project-tags">
+                    <span class="tag tag-award">Award</span>
+                    <span class="tag tag-patent">Patent</span>
+                </div>
+                <p class="project-description">A robotic system that assists library users through collaboration between robots, enhancing the library experience.</p>
             </div>
-            
-            <div class="experience-item">
-                <div class="experience-role">Ph.D. Industrial Design</div>
-                <div class="experience-company">Ewha Womans University</div>
-                <div class="experience-date">2016-2019</div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-role">M.A. Industrial Design</div>
-                <div class="experience-company">Ewha Womans University</div>
-                <div class="experience-date">2014-2016</div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-role">BFA. Industrial Design</div>
-                <div class="experience-company">Ewha Womans University</div>
-                <div class="experience-date">2008-2013</div>
+            <div class="project-image-container">
+                <img src="/dahyun/img/collbot.png" alt="CollaBot" class="project-image">
             </div>
         </div>
 
-        <div class="experience-grid" style="margin-top: 4rem;">
-            <div class="experience-item">
-                <div class="experience-role">Innovative Prototype</div>
-                <div class="experience-company">ICSR 2024</div>
-                <div class="experience-date">2024</div>
+        <div class="project-row">
+            <div class="project-info">
+                <h2 class="project-title">PopupBot</h2>
+                <div class="project-category">Interactive Space</div>
+                <div class="project-tags">
+                    <span class="tag tag-award">Award</span>
+                </div>
+                <p class="project-description">Origami-based Transformable Robotic Playhouse Recognizing Children's Intention.</p>
             </div>
-            
-            <div class="experience-item">
-                <div class="experience-role">ARI Best Researcher Award</div>
-                <div class="experience-company">KIST</div>
-                <div class="experience-date">2023</div>
+            <div class="project-image-container">
+                <img src="/dahyun/img/popupbot.png" alt="PopupBot" class="project-image">
             </div>
-            
-            <!-- Add more award items following the same pattern -->
         </div>
 
-        <a href="#" class="download-cv">
-            Download CV
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14 11V14H2V11H0V14C0 15.1 0.9 16 2 16H14C15.1 16 16 15.1 16 14V11H14ZM13 7L11.59 5.59L9 8.17V0H7V8.17L4.41 5.59L3 7L8 12L13 7Z" fill="currentColor"/>
-            </svg>
-        </a>
-    </section>
+        <div class="project-row">
+            <div class="project-info">
+                <h2 class="project-title">AIDBOT</h2>
+                <div class="project-category">Artificial Intelligence Disinfector</div>
+                <div class="project-tags">
+                    <span class="tag tag-patent">Patent</span>
+                </div>
+                <p class="project-description">A disinfection robot that recognizes targets and provides adaptive responses based on the situation.</p>
+            </div>
+            <div class="project-image-container">
+                <img src="/dahyun/img/aidbot_rendering.png" alt="AIDBOT" class="project-image">
+            </div>
+        </div>
+    </main>
 
-    <!-- Previous HTML remains the same -->
     <script>
-        // Previous JavaScript remains the same
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.project-row').forEach(row => {
+                observer.observe(row);
+            });
+        });
     </script>
 </body>
 </html>
