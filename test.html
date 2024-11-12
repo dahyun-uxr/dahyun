@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Dahyun</title>
     <style>
-        /* 기존 스타일 유지 */
         * {
             margin: 0;
             padding: 0;
@@ -63,9 +62,7 @@
             text-transform: uppercase;
             font-size: 0.9rem;
         }
-
-        /* 새로운 스타일 추가 */
-        .stats-container {
+                .stats-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
@@ -111,7 +108,160 @@
             margin-top: 2rem;
         }
 
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 4rem 4rem;
+        }
+
+        .about-header {
+            margin-bottom: 6rem;
+        }
+
+        .role-title {
+            font-size: 6rem;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .role-title span {
+            display: block;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .role-title span:first-child {
+            opacity: 1; 
+        }
+
+        .location span {
+            display: inline-block;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .location span:first-child {
+            opacity: 1; /* 첫 단어는 항상 보이게 */
+        }
+
+
+        .location {
+            font-size: 1.5rem;
+            color: #666;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.6s;
+            margin-bottom: 6rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .about-text p {
+            margin-bottom: 2rem;
+        }
+
+        .experience-section {
+            margin-top: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.9s;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .experience-list {
+            list-style: none;
+            margin-bottom: 4rem;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .experience-date {
+            font-weight: 700;
+        }
+
+        .award-list {
+            list-style: none;
+        }
+
+        .award-item {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .award-title {
+            font-weight: 700;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @media (max-width: 768px) {
+
+            .header {
+                padding: 0.5rem 1rem;
+            }
+            .nav {
+                justify-content: center; 
+                padding-left: 0;
+                gap: 1.5rem; 
+            }
+           
+            .nav a {
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .about-container {
+                padding: 6rem 2rem 2rem;
+            }
+
+            .role-title {
+                font-size: 3rem;
+            }
+
             .stats-container {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -127,19 +277,46 @@
             .stat-number {
                 font-size: 2.5rem;
             }
-        }
 
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                margin-bottom: 1.5rem;
+            }
+
+            .experience-date {
+                margin-bottom: 0.5rem;
+            }
+        }
+            
         @media (max-width: 480px) {
+            .header {
+                padding: 0.5rem;
+            }
+            
+            .nav {
+                gap: 1rem;
+            }
+            
+            .nav a {
+                font-size: 0.8rem;
+            }
+            
+            .cta-button {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.7rem;
+            }
             .stats-container, .stats-row-2 {
                 grid-template-columns: 1fr;
             }
         }
-
-        /* 나머지 기존 스타일 유지 */
     </style>
 </head>
 <body>
-    <!-- 기존 헤더 유지 -->
     <header class="header">
         <a href="index.html" class="logo">D.</a>
         <nav class="nav">
@@ -161,9 +338,8 @@
                 <span>HRI</span>
                 <span>Researcher</span>
             </h1>
-            
-            <!-- 새로운 통계 섹션 추가 -->
-            <div class="stats-container">
+
+                        <div class="stats-container">
                 <div class="stat-item">
                     <div class="stat-number" data-target="9">0</div>
                     <div class="stat-label">Awards</div>
@@ -192,18 +368,100 @@
                 </div>
             </div>
         </div>
+        </div>
 
-        <!-- 기존 콘텐츠 유지 -->
-        <!-- ... -->
+        <div class="about-content">
+            <div class="about-text">
+                <p>I am a UX designer and researcher specializing in Human-Robot Interaction (HRI). My work focuses on creating meaningful interactions between humans and robots, exploring how we can design more intuitive and natural ways for them to collaborate and communicate.</p>
+                <p>Through my research and design practice, I investigate how robots can be seamlessly integrated into our daily lives, enhancing human capabilities while maintaining user-centered approaches that prioritize human needs and experiences.</p>
+            </div>
+            <div class="about-text">
+                <p>My background combines expertise in interaction design, human-computer interaction, and robotics, allowing me to bridge the gap between technical possibilities and human-centered design solutions.</p>
+                <p>I am particularly interested in developing robot systems that can adapt to various social contexts and user needs, creating experiences that feel natural and beneficial to users while pushing the boundaries of what's possible in human-robot interaction.</p>
+            </div>
+        </div>
+
+        <div class="experience-section">
+            <h2 class="section-title">Experience</h2>
+            <ul class="experience-list">
+                <li class="experience-item">
+                    <span class="experience-date">Mar. 2019 ~ Present</span>
+                    <span class="experience-role">UX Designer and Researcher @ Intelligence and Interaction Research Center, KIST</span>
+                </li>
+                <li class="experience-item">
+                    <span class="experience-date"></span>
+                    <span class="experience-role">Post Doc. Researcher</span>
+                </li>
+            </ul>
+
+            <h2 class="section-title">Education</h2>
+            <ul class="experience-list">
+                <li class="experience-item">
+                    <span class="experience-date">2016-2019</span>
+                    <span class="experience-role">Ph.D. in Industrial Design, Ewha Womans University</span>
+                </li>
+                <li class="experience-item">
+                    <span class="experience-date">2014-2016</span>
+                    <span class="experience-role">M.A. in Industrial Design, Ewha Womans University</span>
+                </li>
+                <li class="experience-item">
+                    <span class="experience-date">2008-2013</span>
+                    <span class="experience-role">BFA. in Industrial Design, Ewha Womans University</span>
+                </li>
+            </ul>
+
+            <h2 class="section-title">Award</h2>
+            <ul class="award-list">
+                <li class="award-item">
+                    <div class="award-title">Innovative Prototype</div>
+                    The 16th International Conference on Social Robotics (ICSR 2024), Robot Design Competition, Odense, Sweden, 2024.
+                </li>
+                <li class="award-item">
+                    <div class="award-title">ARI Best Researcher Award</div>
+                    AI & Robotics Institute, Korea Institute of Science and Technology (KIST), Seoul, South Korea, 2023.
+                </li>
+                <li class="award-item">
+                    <div class="award-title">1st Prize in Hardware Category</div>
+                    The 14th International Conference on Social Robotics (ICSR 2022), Robot Design Competition, Florence, Italy, 2022.
+                </li>
+                <li class="award-item">
+                    <div class="award-title">Best Demonstration</div>
+                    The 17th ACM/IEEE International Conference on Human-Robot Interaction (HRI 2022), Demonstration Session, Sapporo, Japan, 2022.
+                </li>
+                <li class="award-item">
+                    <div class="award-title">ARI Best Researcher Award</div>
+                    AI & Robotics Institute, Korea Institute of Science and Technology (KIST), Seoul, South Korea, 2021.
+                </li>
+                <li class="award-item">
+                    <div class="award-title">Best Paper Candidate</div>
+                    The 29th IEEE International Symposium on Robot and Human Interactive Communication (IEEE RO-MAN 2020), Oral Session, Naples, Italy., 2020.
+                </li>
+                <li class="award-item">
+                    <div class="award-title">3rd Prize</div>
+                    The 10th IEEE International Conference on Social Robotics (ICSR 2018), Competition Session, Qingdao, China, 2018
+                </li>
+                <li class="award-item">
+                    <div class="award-title">Best Demonstration Nomination</div>
+                    The 12th ACM/IEEE International Conference on Human-Robot Interaction (HRI 2017), Demonstration Session, Vienna, Austria, 2017.
+                </li>
+                <li class="award-item">
+                    <div class="award-title">Best Late Breaking Report Nomination</div>
+                    The 12th ACM/IEEE International Conference on Human-Robot Interaction (HRI 2017), Late-Breaking Report, Vienna, Austria, 2017.
+                </li>
+                <li class="award-item">
+                    <div class="award-title">Best Interactive Session Award</div>
+                    The 25th IEEE International Symposium on Robot and Human Interactive Communication (RO-MAN 2016), Poster Session, New York, USA, 2016.
+                </li>
+            </ul>
+        </div>
     </main>
-
     <script>
-        // 기존 스크립트 유지
         document.addEventListener('DOMContentLoaded', () => {
             const titleSpans = document.querySelectorAll('.role-title span');
             const locationSpans = document.querySelectorAll('.location span');
             const allSpans = [...titleSpans, ...locationSpans];
             
+            // 첫 번째 span은 제외하고 나머지 span들의 기준점 계산
             const spanTriggerPoints = Array.from(allSpans).slice(1).map(span => {
                 const rect = span.getBoundingClientRect();
                 return rect.top + window.pageYOffset - window.innerHeight / 2;
@@ -211,8 +469,12 @@
 
             function handleScroll() {
                 const scrollPosition = window.pageYOffset;
+                
+                // 첫 번째 span은 건너뛰고 나머지 span들에 대해 처리
                 spanTriggerPoints.forEach((triggerPoint, index) => {
+                    // index + 1을 해서 첫 번째 span을 건너뜀
                     const span = allSpans[index + 1];
+                    
                     if (scrollPosition > triggerPoint) {
                         span.style.opacity = '1';
                     } else {
@@ -221,6 +483,7 @@
                 });
             }
 
+            // 초기 로드 시 스크롤 위치에 따른 상태 설정
             handleScroll();
             window.addEventListener('scroll', handleScroll);
             
@@ -258,3 +521,8 @@
     </script>
 </body>
 </html>
+
+
+
+
+
