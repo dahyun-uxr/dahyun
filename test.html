@@ -97,7 +97,7 @@
         }
 
         .location span:first-child {
-            opacity: 1; /* 첫 단어는 항상 보이게 */
+            opacity: 1; 
         }
 
 
@@ -173,7 +173,26 @@
         .award-title {
             font-weight: 700;
         }
+        
+        .download-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid #000;
+            border-radius: 100px;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
 
+        .download-cv:hover {
+            background: #000;
+            color: #fff;
+        }
+        
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -279,20 +298,11 @@
                 <p>I am a UX designer and researcher with a deep focus on both Human-Robot Interaction (HRI) and Human-Computer Interaction (HCI). My work centers on designing meaningful and intuitive interactions that seamlessly integrate technology into everyday life, enhancing user experiences in subtle yet impactful ways.</p>
                 <p>I have extensive experience across the entire design process—from user research and prototype development to user evaluations—having successfully executed these phases multiple times. My background in interaction design, robotics, and HCI enables me to bridge the gap between technical innovation and human-centered solutions.</p>
             </div>
-            <div class="about-text">
-                <p>I excel in UX research and robotic product design, with expertise spanning both qualitative and quantitative methodologies:<br> 
-                UX Research<br>
-                Qualitative: Conducting in-depth user behavioral analysis, interviews, and contextual inquiries; translating insights into service planning, wireframes, and workflow design.<br>
-                Quantitative: Executing usability testing, user and market research, developing UX strategies, and performing statistical analyses for service planning.<br>
-                Robotic Product Design<br>
-                Designing robotic products<br>
-                Building functional prototypes and showcasing them in exhibitions</p>
-            </div>
         </div>
             <main class="about-container">
         <div class="about-header">
             <h1 class="role-title">
-                <span>9 Awards</span>
+                <span>7 Awards</span>
                 <span>8 Journal Articles</span>
                 <span>25 Conference Papers</span>
                 <span>5 Patents</span>
@@ -318,7 +328,19 @@
                     <span class="experience-role">Post Doc. Researcher</span>
                 </li>
             </ul>
-
+            
+            <h2 class="section-title">Skillset</h2>
+            <ul class="experience-list">
+                <li class="experience-item">
+                    <span class="experience-date">UX Research</span>
+                    <span class="experience-role">Qualitative: Conducting in-depth user behavioral analysis, interviews, and contextual inquiries; translating insights into service planning, wireframes, and workflow design. <br> Quantitative: Executing usability testing, user and market research, developing UX strategies, and performing statistical analyses for service planning.</span>
+                </li>
+                <li class="experience-item">
+                    <span class="experience-date">Robotic Product Design</span>
+                    <span class="experience-role"> Designing robotic products<br>Building functional prototypes and showcasing them in exhibitions</span>
+                </li>
+            </ul>
+            
             <h2 class="section-title">Education</h2>
             <ul class="experience-list">
                 <li class="experience-item">
@@ -332,9 +354,9 @@
                 <li class="experience-item">
                     <span class="experience-date">2008-2013</span>
                     <span class="experience-role">BFA. in Industrial Design, Ewha Womans University</span>
-                </li>
+                </li>      
             </ul>
-
+          
             <h2 class="section-title">Award</h2>
             <ul class="award-list">
                 <li class="award-item">
@@ -379,6 +401,12 @@
                 </li>
             </ul>
         </div>
+            <a href="#" class="download-cv">
+            Download CV
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 11V14H2V11H0V14C0 15.1 0.9 16 2 16H14C15.1 16 16 15.1 16 14V11H14ZM13 7L11.59 5.59L9 8.17V0H7V8.17L4.41 5.59L3 7L8 12L13 7Z" fill="currentColor"/>
+            </svg>
+        </a>
     </main>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
