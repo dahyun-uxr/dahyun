@@ -68,7 +68,7 @@
             padding-top: 100px;
             display: flex;
             flex-direction: column;
-            gap: 0; /* Remove gap between items */
+            gap: 0;
         }
 
         .project-row {
@@ -89,17 +89,26 @@
         .project-info {
             flex: 1;
             padding: 2rem 4rem;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-image-container {
             flex: 1;
             padding: 2rem;
+            height: 400px; /* 고정 높이 설정 */
+            overflow: hidden; /* 이미지가 컨테이너를 벗어나지 않도록 */
         }
 
         .project-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-image:hover {
+            transform: scale(1.1);
         }
 
         .project-title {
@@ -111,9 +120,32 @@
         .project-category {
             font-size: 1rem;
             color: #666;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tag-award {
+            background-color: #FFD700;
+            color: #000;
+        }
+
+        .tag-patent {
+            background-color: #4CAF50;
+            color: #fff;
         }
 
         .project-description {
@@ -121,6 +153,16 @@
             line-height: 1.6;
             color: #444;
             max-width: 600px;
+        }
+
+        @media (max-width: 1024px) {
+            .project-info {
+                padding: 2rem;
+            }
+
+            .project-image-container {
+                height: 350px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -138,15 +180,6 @@
                 font-size: 0.9rem;
             }
 
-            .cta-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-            
             .project-row {
                 flex-direction: column;
             }
@@ -157,14 +190,16 @@
             }
 
             .project-image-container {
-                padding: 0;
+                padding: 1rem;
                 order: 1;
+                height: 300px;
             }
 
             .project-title {
                 font-size: 2rem;
             }
-            
+        }
+        
         @media (max-width: 480px) {
             .header {
                 padding: 0.5rem;
@@ -178,9 +213,16 @@
                 font-size: 0.8rem;
             }
             
-            .cta-button {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.7rem;
+            .project-image-container {
+                height: 250px;
+            }
+            
+            .project-title {
+                font-size: 1.8rem;
+            }
+            
+            .project-description {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -201,6 +243,10 @@
             <div class="project-info">
                 <h2 class="project-title">oOoBOT</h2>
                 <div class="project-category">Robotic Furniture System</div>
+                <div class="project-tags">
+                    <span class="tag tag-award">Award</span>
+                    <span class="tag tag-patent">Patent</span>
+                </div>
                 <p class="project-description">A versatile robotic furniture system that adapts its size and functionality to meet users' needs in various situations.</p>
             </div>
             <div class="project-image-container">
@@ -212,6 +258,9 @@
             <div class="project-info">
                 <h2 class="project-title">RainbowBot</h2>
                 <div class="project-category">Robotic Tableware</div>
+                <div class="project-tags">
+                    <span class="tag tag-award">Award</span>
+                </div>
                 <p class="project-description">Robotic Tableware for Children's Dietary Habits.</p>
             </div>
             <div class="project-image-container">
@@ -223,6 +272,9 @@
             <div class="project-info">
                 <h2 class="project-title">CollaBot</h2>
                 <div class="project-category">Library Assistant Robot</div>
+                <div class="project-tags">
+                    <span class="tag tag-patent">Patent</span>
+                </div>
                 <p class="project-description">A robotic system that assists library users through collaboration between robots, enhancing the library experience.</p>
             </div>
             <div class="project-image-container">
@@ -234,7 +286,11 @@
             <div class="project-info">
                 <h2 class="project-title">PopupBot</h2>
                 <div class="project-category">Interactive Space</div>
-                <p class="project-description">Origami-based Transformable Robotic Playhouse Recognizing Children’s Intention.</p>
+                <div class="project-tags">
+                    <span class="tag tag-award">Award</span>
+                    <span class="tag tag-patent">Patent</span>
+                </div>
+                <p class="project-description">Origami-based Transformable Robotic Playhouse Recognizing Children's Intention.</p>
             </div>
             <div class="project-image-container">
                 <img src="/dahyun/img/popupbot.png" alt="PopupBot" class="project-image">
@@ -245,6 +301,9 @@
             <div class="project-info">
                 <h2 class="project-title">AIDBOT</h2>
                 <div class="project-category">Artificial Intelligence Disinfector</div>
+                <div class="project-tags">
+                    <span class="tag tag-patent">Patent</span>
+                </div>
                 <p class="project-description">A disinfection robot that recognizes targets and provides adaptive responses based on the situation.</p>
             </div>
             <div class="project-image-container">
