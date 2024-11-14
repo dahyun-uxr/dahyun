@@ -18,15 +18,24 @@
             overflow-x: hidden;
         }
 
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
         .header {
             position: fixed;
             width: 100%;
-            padding: 1rem 2rem;
+            background: #ffffff;
+            z-index: 1000;
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #ffffff;
-            z-index: 1000;
+            padding: 1rem 0;
         }
 
         .logo {
@@ -41,7 +50,8 @@
             gap: 2.5rem;
             justify-content: center;
             flex-grow: 1;
-            text-align: center;
+            text-align: left;
+            margin-left: 4rem;
         }
 
         .nav a {
@@ -65,14 +75,11 @@
 
         .hero {
             min-height: 100vh;
-            padding: 8rem 4rem 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding-top: 8rem;
         }
 
         .hero-content {
             padding-top: 2rem;
-            padding: 4rem 2rem 0;
         }
 
         .hero-title {
@@ -80,6 +87,7 @@
             line-height: 1.2;
             font-weight: 700;
             margin-bottom: 2rem;
+            text-align: left;
         }
         
         .hero-title span {
@@ -93,16 +101,14 @@
         }
 
         .news-section {
-            margin: 6rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 6rem 0;
         }
 
         .news-title, .projects-title {
             font-size: 1.5rem;
             font-weight: 500;
             margin-bottom: 2rem;
+            text-align: left;
         }
 
         .news-grid {
@@ -141,14 +147,17 @@
         }
 
         @media (max-width: 768px) {
-            .header {
-                padding: 0.5rem 1rem;
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .header-content {
+                padding: 0.5rem 0;
             }
             
             .nav {
-                justify-content: center; 
-                padding-left: 0;
-                gap: 1.5rem; 
+                margin-left: 2rem;
+                gap: 1.5rem;
             }
            
             .nav a {
@@ -168,35 +177,26 @@
                 font-size: 3rem;
             }
             
-            .hero-content {
-                padding: 4rem 1rem 1rem;
-            }
-            
             .hero {
-                min-height: 100vh;
-                padding: 6rem 0.5rem 0.5rem; 
-                margin: 0 auto;
+                padding-top: 6rem;
             }
 
             .news-grid {
                 grid-template-columns: 1fr;
             }
 
-            .project-item {
-                height: 200px;
-            }
-
             .news-section {
-                padding: 6rem 2rem 2rem;
-                margin: 4rem auto;
-            }  
-            
+                margin: 4rem 0;
+            }
+        }
+        
         @media (max-width: 480px) {
-            .header {
-                padding: 0.5rem;
+            .container {
+                padding: 0 1rem;
             }
             
             .nav {
+                margin-left: 1rem;
                 gap: 1rem;
             }
             
@@ -213,56 +213,62 @@
 </head>
 <body>
     <header class="header">
-        <a href="index.html" class="logo">D.</a>
-        <nav class="nav">
-            <a href="about.html">About</a>
-            <a href="design.html">Design</a>
-            <a href="research.html">Research</a>
-        </nav>
-        <a href="#contact" class="cta-button">Contact</a>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">D.</a>
+                <nav class="nav">
+                    <a href="about.html">About</a>
+                    <a href="design.html">Design</a>
+                    <a href="research.html">Research</a>
+                </nav>
+                <a href="#contact" class="cta-button">Contact</a>
+            </div>
+        </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title" id="hero-text">
-                    <span>Seamless</span>
-                    <span>UX Design:</span>
-                    <span>Enriching</span>
-                    <span>Everyday Life</span>
-                    <span>by Integrating</span>
-                    <span>Invisible Technologies</span>
-                    <span>into</span>
-                    <span>the Familiar</span>
-                </h1>
-            </div>
-        </section>
+        <div class="container">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title" id="hero-text">
+                        <span>Seamless</span>
+                        <span>UX Design:</span>
+                        <span>Enriching</span>
+                        <span>Everyday Life</span>
+                        <span>by Integrating</span>
+                        <span>Invisible Technologies</span>
+                        <span>into</span>
+                        <span>the Familiar</span>
+                    </h1>
+                </div>
+            </section>
 
-        <section class="news-section">
-            <h2 class="news-title">Latest News</h2>
-            <div class="news-grid">
-                <article class="news-item">
-                    <div class="news-date">November 20, 2024</div>
-                    <h3 class="news-headline">Panel Speaker at Korea Robotics Society Annual Conference Workshop</h3>
-                    <p class="news-excerpt">I am honored to be invited as a panel speaker at the Korea Robotics Society's social robot workshop. The talk will delve into 'Invisible Robot Technologies', focusing on how unobtrusive product-type robots can seamlessly assist people in their daily lives.</p>
-                </article>
-                <article class="news-item">
-                    <div class="news-date">November 9, 2024</div>
-                    <h3 class="news-headline">Upcoming Book Chapter Publication</h3>
-                    <p class="news-excerpt">We are excited to share that our book chapter titled, "The Robotization Design of Everyday Things", will be published on November 28th in the upcoming volume Designing Interactions with Robots: Methods and Perspectives, CRC Press, 2024.</p>
-                </article>
-                <article class="news-item">
-                    <div class="news-date">October 25, 2024</div>
-                    <h3 class="news-headline">Award-Winning Prototype at ICSR 2024</h3>
-                    <p class="news-excerpt">We are thrilled to announce that our innovative project, oOoBOT, received the Innovative Prototype Award at the ICSR 2024 Robot Design Competition. oOoBOT is a versatile robotic furniture system that adapts its size and functionality to meet users' needs in various situations.</p>
-                </article>
-                <article class="news-item">
-                    <div class="news-date">March 10, 2024</div>
-                    <h3 class="news-headline">New Research Paper Published in HRI 2024</h3>
-                    <p class="news-excerpt">Our latest research, "Collabot: A Robotic System That Assists Library Users Through Collaboration Between Robots", has been accepted for presentation at HRI 2024. This study explores collaborative interactions between robots and users in library environments.</p>
-                </article>
-            </div>
-        </section>
+            <section class="news-section">
+                <h2 class="news-title">Latest News</h2>
+                <div class="news-grid">
+                    <article class="news-item">
+                        <div class="news-date">November 20, 2024</div>
+                        <h3 class="news-headline">Panel Speaker at Korea Robotics Society Annual Conference Workshop</h3>
+                        <p class="news-excerpt">I am honored to be invited as a panel speaker at the Korea Robotics Society's social robot workshop. The talk will delve into 'Invisible Robot Technologies', focusing on how unobtrusive product-type robots can seamlessly assist people in their daily lives.</p>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">November 9, 2024</div>
+                        <h3 class="news-headline">Upcoming Book Chapter Publication</h3>
+                        <p class="news-excerpt">We are excited to share that our book chapter titled, "The Robotization Design of Everyday Things", will be published on November 28th in the upcoming volume Designing Interactions with Robots: Methods and Perspectives, CRC Press, 2024.</p>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">October 25, 2024</div>
+                        <h3 class="news-headline">Award-Winning Prototype at ICSR 2024</h3>
+                        <p class="news-excerpt">We are thrilled to announce that our innovative project, oOoBOT, received the Innovative Prototype Award at the ICSR 2024 Robot Design Competition. oOoBOT is a versatile robotic furniture system that adapts its size and functionality to meet users' needs in various situations.</p>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">March 10, 2024</div>
+                        <h3 class="news-headline">New Research Paper Published in HRI 2024</h3>
+                        <p class="news-excerpt">Our latest research, "Collabot: A Robotic System That Assists Library Users Through Collaboration Between Robots", has been accepted for presentation at HRI 2024. This study explores collaborative interactions between robots and users in library environments.</p>
+                    </article>
+                </div>
+            </section>
+        </div>
     </main>
 
     <script>
@@ -277,7 +283,6 @@
                 const scrollPosition = window.pageYOffset;
                 
                 spanTriggerPoints.forEach((triggerPoint, index) => {
-
                     const span = titleSpans[index + 1];
                     
                     if (scrollPosition > triggerPoint) {
@@ -306,12 +311,10 @@
                     }
                 });
             }, {
-                threshold: 0.1 // 요소의 10%가 화면에 들어오면 감지
+                threshold: 0.1
             });
             const items = document.querySelectorAll('.news-item, .project-item');
             items.forEach(item => observer.observe(item));
-
     </script>
-
 </body>
 </html>
