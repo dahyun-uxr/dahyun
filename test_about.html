@@ -64,18 +64,15 @@
         }
 
         .about-container {
-            min-height: 100vh;
-            padding: 8rem 4rem 4rem;
             max-width: 1400px;
             margin: 0 auto;
+            padding: 8rem 2rem 4rem;
         }
 
         .about-header {
-            padding: 4rem 2rem 0;
             margin-bottom: 6rem;
         }
 
-        /* hero-title과 동일한 스타일 적용 */
         .role-title {
             font-size: 6rem;
             line-height: 1.2;
@@ -95,7 +92,6 @@
         }
 
         .about-content {
-            padding: 0 2rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -104,8 +100,6 @@
             animation: fadeInUp 1s ease forwards 0.6s;
             margin-bottom: 6rem;
             max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .about-text {
@@ -119,14 +113,11 @@
         }
 
         .experience-section {
-            padding: 0 2rem;
             margin-top: 4rem;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s ease forwards 0.9s;
             max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .section-title {
@@ -161,8 +152,29 @@
             line-height: 1.6;
         }
 
-        .award-title {
-            font-weight: 700;
+        .download-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #000;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #000;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .download-cv:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .download-cv svg {
+            width: 16px;
+            height: 16px;
         }
 
         @keyframes fadeInUp {
@@ -183,31 +195,11 @@
             
             .nav {
                 justify-content: center;
-                padding-left: 0;
                 gap: 1.5rem;
             }
            
-            .nav a {
-                font-size: 0.9rem;
-            }
-
-            .cta-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-
             .about-container {
-                min-height: 100vh;
-                padding: 6rem 0.5rem 0.5rem;
-                margin: 0 auto;
-            }
-
-            .about-header {
-                padding: 4rem 1rem 1rem;
+                padding: 6rem 1rem 2rem;
             }
 
             .role-title {
@@ -217,11 +209,6 @@
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-                padding: 0 1rem;
-            }
-
-            .experience-section {
-                padding: 0 1rem;
             }
 
             .experience-item {
@@ -247,9 +234,8 @@
                 font-size: 0.8rem;
             }
             
-            .cta-button {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.7rem;
+            .about-container {
+                padding: 6rem 0.75rem 1.5rem;
             }
         }
     </style>
@@ -283,7 +269,7 @@
                 <p>I have extensive experience across the entire design process—from user research and prototype development to user evaluations—having successfully executed these phases multiple times. My background in interaction design, robotics, and HCI enables me to bridge the gap between technical innovation and human-centered solutions.</p>
             </div>
         </div>
-            <main class="about-container">
+
         <div class="about-header">
             <h1 class="role-title">
                 <span>7 Awards</span>
@@ -296,7 +282,7 @@
         </div>
         <div class="award-list">
             <div class="award-item">
-                <p>showcase my commitment to advancing the field. I am especially passionate about developing adaptive robotic systems that can respond naturally to diverse social contexts and user needs, pushing the boundaries of what’s possible in both HRI and HCI design.</p>
+                <p>showcase my commitment to advancing the field. I am especially passionate about developing adaptive robotic systems that can respond naturally to diverse social contexts and user needs, pushing the boundaries of what's possible in both HRI and HCI design.</p>
             </div>
         </div>
                 
@@ -321,7 +307,7 @@
                 </li>
                 <li class="experience-item">
                     <span class="experience-date">Robotic Product Design</span>
-                    <span class="experience-role"> Designing robotic products<br>Building functional prototypes and showcasing them in exhibitions</span>
+                    <span class="experience-role">Designing robotic products<br>Building functional prototypes and showcasing them in exhibitions</span>
                 </li>
             </ul>
             
@@ -340,23 +326,23 @@
                     <span class="experience-role">BFA. in Industrial Design, Ewha Womans University</span>
                 </li>      
             </ul>
-          
         </div>
-            <a href="#" class="download-cv">
+
+        <a href="#" class="download-cv">
             Download CV
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14 11V14H2V11H0V14C0 15.1 0.9 16 2 16H14C15.1 16 16 15.1 16 14V11H14ZM13 7L11.59 5.59L9 8.17V0H7V8.17L4.41 5.59L3 7L8 12L13 7Z" fill="currentColor"/>
             </svg>
         </a>
     </main>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const titleSpans = document.querySelectorAll('.role-title span');
             const locationSpans = document.querySelectorAll('.location span');
             const allSpans = [...titleSpans, ...locationSpans];
             
-            // 첫 번째 span은 제외하고 나머지 span들의 기준점 계산
-            const spanTriggerPoints = Array.from(allSpans).slice(1).map(span => {
+            let spanTriggerPoints = Array.from(allSpans).slice(1).map(span => {
                 const rect = span.getBoundingClientRect();
                 return rect.top + window.pageYOffset - window.innerHeight / 2;
             });
@@ -364,9 +350,7 @@
             function handleScroll() {
                 const scrollPosition = window.pageYOffset;
                 
-                // 첫 번째 span은 건너뛰고 나머지 span들에 대해 처리
                 spanTriggerPoints.forEach((triggerPoint, index) => {
-                    // index + 1을 해서 첫 번째 span을 건너뜀
                     const span = allSpans[index + 1];
                     
                     if (scrollPosition > triggerPoint) {
@@ -377,13 +361,10 @@
                 });
             }
 
-            // 초기 로드 시 스크롤 위치에 따른 상태 설정
             handleScroll();
             
-            // 스크롤 이벤트 리스너 등록
             window.addEventListener('scroll', handleScroll);
             
-            // 리사이즈 시 트리거 포인트 재계산
             window.addEventListener('resize', () => {
                 spanTriggerPoints = Array.from(allSpans).slice(1).map(span => {
                     const rect = span.getBoundingClientRect();
