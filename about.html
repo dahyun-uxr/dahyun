@@ -11,6 +11,10 @@
             box-sizing: border-box;
         }
 
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
             background-color: #ffffff;
@@ -64,12 +68,14 @@
         }
 
         .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
+            min-height: 100vh;
             padding: 8rem 4rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .about-header {
+            padding: 4rem 2rem 0;
             margin-bottom: 6rem;
         }
 
@@ -87,29 +93,11 @@
         }
 
         .role-title span:first-child {
-            opacity: 1; 
-        }
-
-        .location span {
-            display: inline-block;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .location span:first-child {
-            opacity: 1; /* 첫 단어는 항상 보이게 */
-        }
-
-
-        .location {
-            font-size: 1.5rem;
-            color: #666;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease forwards 0.3s;
+            opacity: 1;
         }
 
         .about-content {
+            padding: 0 2rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -117,6 +105,9 @@
             transform: translateY(20px);
             animation: fadeInUp 1s ease forwards 0.6s;
             margin-bottom: 6rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .about-text {
@@ -130,18 +121,20 @@
         }
 
         .experience-section {
+            padding: 0 2rem;
             margin-top: 4rem;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s ease forwards 0.9s;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
+            font-size: 1.5rem;
+            font-weight: 500;
             margin-bottom: 2rem;
-            letter-spacing: 0.05em;
         }
 
         .experience-list {
@@ -186,14 +179,14 @@
         }
 
         @media (max-width: 768px) {
-
             .header {
                 padding: 0.5rem 1rem;
             }
+            
             .nav {
-                justify-content: center; 
+                justify-content: center;
                 padding-left: 0;
-                gap: 1.5rem; 
+                gap: 1.5rem;
             }
            
             .nav a {
@@ -208,9 +201,14 @@
             .logo {
                 font-size: 1.3rem;
             }
-            
+
             .about-container {
-                padding: 6rem 2rem 2rem;
+                padding: 6rem 0.5rem 0.5rem;
+                margin: 0 auto;
+            }
+
+            .about-header {
+                padding: 4rem 1rem 1rem;
             }
 
             .role-title {
@@ -220,6 +218,11 @@
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                padding: 0 1rem;
+            }
+
+            .experience-section {
+                padding: 0 1rem;
             }
 
             .experience-item {
@@ -230,7 +233,8 @@
             .experience-date {
                 margin-bottom: 0.5rem;
             }
-            
+        }
+        
         @media (max-width: 480px) {
             .header {
                 padding: 0.5rem;
