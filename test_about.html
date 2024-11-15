@@ -1,138 +1,235 @@
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Dahyun</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-        font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
-        background-color: #ffffff;
-        color: #000000;
-        overflow-x: hidden;
-    }
+        body {
+            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+        }
 
-    .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 10.2rem;
-    }
-
-    /* 헤더 스타일 */
-    .header {
-        position: fixed;
-        width: 100%;
-        background: #ffffff;
-        z-index: 1000;
-        border-bottom: 1px solid #eaeaea;
-    }
-
-    .header-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 4rem;
-        padding: 0 10.2rem;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        text-decoration: none;
-        color: #000000;
-        flex-shrink: 0;
-    }
-
-    .nav {
-        display: flex;
-        gap: 2.5rem;
-        justify-content: center;
-        align-items: center;
-        flex-grow: 1;
-    }
-
-    .nav a {
-        text-decoration: none;
-        color: #000000;
-        font-size: 1rem;
-        text-transform: uppercase;
-        font-weight: 300;
-        letter-spacing: 0.5px;
-    }
-
-    .cta-button {
-        background: #000000;
-        color: #ffffff;
-        padding: 0.5rem 1rem;
-        border-radius: 100px;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        flex-shrink: 0;
-    }
-
-    /* 반응형 스타일 */
-    @media (max-width: 1024px) {
         .container {
-            padding: 0 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 10.2rem;
+        }
+
+        /* 헤더 스타일 */
+        .header {
+            position: fixed;
+            width: 100%;
+            background: #ffffff;
+            z-index: 1000;
+            border-bottom: 1px solid #eaeaea;
         }
 
         .header-content {
-            padding: 0 2rem;
-        }
-
-        .nav {
-            gap: 2rem;
-        }
-
-        .cta-button {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.8rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            padding: 0 2rem;
-        }
-
-        .header-content {
-            padding: 0 2rem;
-        }
-
-        .nav {
-            gap: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+            padding: 0 10.2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .logo {
-            font-size: 1.3rem;
-        }
-
-        .cta-button {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.8rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .header-content {
-            padding: 0 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #000000;
+            flex-shrink: 0;
         }
 
         .nav {
-            gap: 1rem;
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
         }
 
         .nav a {
-            font-size: 0.9rem;
+            text-decoration: none;
+            color: #000000;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         .cta-button {
-            margin-right: -0.5rem;
-            padding: 0.3rem 0.6rem;
-            font-size: 0.7rem;
+            background: #000000;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
-    }
-</style>
+
+        /* About 페이지 레이아웃 */
+        .about-container {
+            padding: 8rem 10.2rem 4rem;
+            margin-top: 4rem;
+        }
+
+        .about-header {
+            margin-bottom: 6rem;
+            text-align: left;
+        }
+
+        .role-title {
+            font-size: 6rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .role-title span {
+            display: block;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .role-title span:first-child {
+            opacity: 1;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .about-text p {
+            margin-bottom: 2rem;
+        }
+
+        /* 반응형 스타일 */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+
+            .header-content {
+                padding: 0 2rem;
+            }
+
+            .nav {
+                gap: 2rem;
+            }
+
+            .about-container {
+                padding: 6rem 2rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 1.5rem;
+            }
+
+            .nav {
+                gap: 1.5rem;
+            }
+
+            .role-title {
+                font-size: 3.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            .nav {
+                gap: 1rem;
+            }
+
+            .nav a {
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .role-title {
+                font-size: 2.5rem;
+            }
+
+            .about-container {
+                padding: 4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">D.</a>
+                <nav class="nav">
+                    <a href="about.html">About</a>
+                    <a href="design.html">Design</a>
+                    <a href="research.html">Research</a>
+                </nav>
+                <a href="#contact" class="cta-button">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="about-container">
+        <div class="about-header">
+            <h1 class="role-title">
+                <span>UX Designer</span>
+                <span>HCI / HRI Researcher</span>
+            </h1>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I am a UX designer and researcher with a focus on Human-Robot Interaction (HRI) and Human-Computer Interaction (HCI). My work centers on integrating technology into everyday life to enhance user experiences.</p>
+            </div>
+            <div class="about-text">
+                <p>I have extensive experience across user research, prototype development, and user evaluations. My background in interaction design and robotics bridges technical innovation with human-centered solutions.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const spans = document.querySelectorAll('.role-title span');
+            spans.forEach((span, index) => {
+                setTimeout(() => {
+                    span.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
