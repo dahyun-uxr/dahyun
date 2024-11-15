@@ -21,7 +21,7 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 10.2rem;  /* index.html과 동일한 여백 */
+            padding: 0 10.2rem;
         }
 
         .header {
@@ -29,16 +29,20 @@
             width: 100%;
             background: #ffffff;
             z-index: 1000;
-            left: 0;  
-            right: 0;  
-            top: 0; 
+            left: 0;
+            right: 0;
+            top: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;  /* index.html과 동일한 상하 패딩 */
+            padding: 1rem 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 10.2rem;
         }
 
         .logo {
@@ -76,9 +80,9 @@
         }
 
         .about-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 8rem 4rem 4rem;
+            padding: 8rem 10.2rem 4rem;
         }
 
         .about-header {
@@ -208,16 +212,11 @@
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 0 2rem;  
-            }
-            
             .header-content {
-                padding: 0.5rem 0;
+                padding: 0.5rem 2rem;
             }
             
             .nav {
-                justify-content: center;
                 gap: 1.5rem;
             }
 
@@ -227,7 +226,7 @@
             }
             
             .about-container {
-                padding: 6rem 3rem 2rem;
+                padding: 6rem 2rem 2rem;
             }
 
             .role-title {
@@ -250,11 +249,8 @@
         }
         
         @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-            .header {
-                padding: 0.5rem;
+            .header-content {
+                padding: 0.5rem 1rem;
             }
             
             .nav {
@@ -266,7 +262,7 @@
             }
             
             .about-container {
-                padding: 6rem 1.5rem 1.5rem;
+                padding: 6rem 1rem 1.5rem;
             }
             
             .cta-button {
@@ -274,34 +270,19 @@
                 font-size: 0.7rem;
             }
         }
-            .about-container {
-                max-width: 1400px;  /* container와 동일한 max-width */
-                margin: 0 auto;
-                padding: 8rem 10.2rem 4rem;  /* 상단 패딩은 헤더 높이 고려, 좌우 패딩은 container와 동일 */
-        }
-
-        @media (max-width: 768px) {
-            .about-container {
-                padding: 6rem 2rem 2rem;  /* 태블릿에서의 여백 */
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .about-container {
-                padding: 6rem 1rem 1.5rem;  /* 모바일에서의 여백 */
-            }
-        }
     </style>
 </head>
 <body>
     <header class="header">
-        <a href="index.html" class="logo">D.</a>
-        <nav class="nav">
-            <a href="about.html">About</a>
-            <a href="design.html">Design</a>
-            <a href="research.html">Research</a>
-        </nav>
-        <a href="#contact" class="cta-button">Contact</a>
+        <div class="header-content">
+            <a href="index.html" class="logo">D.</a>
+            <nav class="nav">
+                <a href="about.html">About</a>
+                <a href="design.html">Design</a>
+                <a href="research.html">Research</a>
+            </nav>
+            <a href="#contact" class="cta-button">Contact</a>
+        </div>
     </header>
 
     <main class="about-container">
