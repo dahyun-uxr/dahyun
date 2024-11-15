@@ -1,237 +1,138 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dahyun</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            overflow-x: hidden;
-        }
+    body {
+        font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+        background-color: #ffffff;
+        color: #000000;
+        overflow-x: hidden;
+    }
 
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 10.2rem;
+    }
+
+    /* 헤더 스타일 */
+    .header {
+        position: fixed;
+        width: 100%;
+        background: #ffffff;
+        z-index: 1000;
+        border-bottom: 1px solid #eaeaea;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 4rem;
+        padding: 0 10.2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: #000000;
+        flex-shrink: 0;
+    }
+
+    .nav {
+        display: flex;
+        gap: 2.5rem;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    .nav a {
+        text-decoration: none;
+        color: #000000;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+    }
+
+    .cta-button {
+        background: #000000;
+        color: #ffffff;
+        padding: 0.5rem 1rem;
+        border-radius: 100px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+    }
+
+    /* 반응형 스타일 */
+    @media (max-width: 1024px) {
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* 헤더 스타일 */
-        .header {
-            position: fixed;
-            width: 100%;
-            background: #ffffff;
-            z-index: 1000;
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: #000000;
-            flex-shrink: 0;
+        .header-content {
+            padding: 0 2rem;
         }
 
         .nav {
-            display: flex;
-            gap: 2.5rem;
-            flex-grow: 1;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .nav a {
-            text-decoration: none;
-            color: #000000;
-            font-size: 1rem;
-            text-transform: uppercase;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-
-        .cta-button {
-            background: #000000;
-            color: #ffffff;
-            padding: 0.5rem 1.2rem;
-            border-radius: 100px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
-
-        .hero {
-            min-height: 100vh;
-            padding-top: 6rem;
-        }
-
-        .hero-content {
-            text-align: left;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            line-height: 1.2;
-            font-weight: 700;
-            margin-bottom: 2rem;
-        }
-        
-        .hero-title span {
-            display: block;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .news-section {
-            margin: 6rem 0;
-        }
-
-        .news-title {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .news-item {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        .cta-button {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 2rem;
         }
 
-        .news-item.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .header-content {
+            padding: 0 2rem;
         }
 
-        .news-date {
+        .nav {
+            gap: 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+        }
+
+        .cta-button {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .header-content {
+            padding: 0 1rem;
+        }
+
+        .nav {
+            gap: 1rem;
+        }
+
+        .nav a {
             font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.5rem;
         }
 
-        .news-headline {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
+        .cta-button {
+            margin-right: -0.5rem;
+            padding: 0.3rem 0.6rem;
+            font-size: 0.7rem;
         }
-
-        .news-excerpt {
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.5;
-        }
-
-        /* 반응형 스타일 */
-        @media (max-width: 1024px) {
-            .nav {
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                padding: 0 1rem;
-            }
-
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav {
-                gap: 1rem;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .cta-button {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">D.</a>
-                <nav class="nav">
-                    <a href="about.html">About</a>
-                    <a href="design.html">Design</a>
-                    <a href="research.html">Research</a>
-                </nav>
-                <a href="#contact" class="cta-button">Contact</a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <section class="hero">
-                <div class="hero-content">
-                    <h1 class="hero-title" id="hero-text">
-                        <span>Seamless</span>
-                        <span>UX Design:</span>
-                        <span>Enriching</span>
-                        <span>Everyday Life</span>
-                        <span>by Integrating</span>
-                        <span>Invisible Technologies</span>
-                        <span>into</span>
-                        <span>the Familiar</span>
-                    </h1>
-                </div>
-            </section>
-
-            <section class="news-section">
-                <h2 class="news-title">Latest News</h2>
-                <div class="news-grid">
-                    <article class="news-item visible">
-                        <div class="news-date">November 20, 2024</div>
-                        <h3 class="news-headline">Panel Speaker at Korea Robotics Society</h3>
-                        <p class="news-excerpt">Discussing 'Invisible Robot Technologies' for seamless assistance in daily life.</p>
-                    </article>
-                    <article class="news-item visible">
-                        <div class="news-date">November 9, 2024</div>
-                        <h3 class="news-headline">Upcoming Book Chapter Publication</h3>
-                        <p class="news-excerpt">Our chapter on "The Robotization Design of Everyday Things" will be published soon.</p>
-                    </article>
-                </div>
-            </section>
-        </div>
-    </main>
-</body>
-</html>
+    }
+</style>
