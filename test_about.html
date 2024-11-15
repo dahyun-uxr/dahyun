@@ -18,15 +18,27 @@
             overflow-x: hidden;
         }
 
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 10.2rem;  /* index.html과 동일한 여백 */
+        }
+
         .header {
             position: fixed;
             width: 100%;
-            padding: 1rem 2rem;
+            background: #ffffff;
+            z-index: 1000;
+            left: 0;  
+            right: 0;  
+            top: 0; 
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #ffffff;
-            z-index: 1000;
+            padding: 1rem 0;  /* index.html과 동일한 상하 패딩 */
         }
 
         .logo {
@@ -196,8 +208,12 @@
         }
 
         @media (max-width: 768px) {
-            .header {
-                padding: 0.5rem 1rem;
+            .container {
+                padding: 0 2rem;  
+            }
+            
+            .header-content {
+                padding: 0.5rem 0;
             }
             
             .nav {
@@ -234,6 +250,9 @@
         }
         
         @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
             .header {
                 padding: 0.5rem;
             }
@@ -253,6 +272,23 @@
             .cta-button {
                 padding: 0.3rem 0.6rem;
                 font-size: 0.7rem;
+            }
+        }
+            .about-container {
+                max-width: 1400px;  /* container와 동일한 max-width */
+                margin: 0 auto;
+                padding: 8rem 10.2rem 4rem;  /* 상단 패딩은 헤더 높이 고려, 좌우 패딩은 container와 동일 */
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                padding: 6rem 2rem 2rem;  /* 태블릿에서의 여백 */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-container {
+                padding: 6rem 1rem 1.5rem;  /* 모바일에서의 여백 */
             }
         }
     </style>
