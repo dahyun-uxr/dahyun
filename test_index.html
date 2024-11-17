@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dahyun</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 10.2rem;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+            background: #ffffff;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            flex-grow: 1;
+            text-align: left;
+            margin-left: 2rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button {
+            background: #000000;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 8rem;
+        }
+
+        .hero-content {
+            padding-top: 2rem;
+        }
+
+        .hero-title {
+            font-size: 6rem;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .hero-title span {
+            display: block;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .hero-title span:first-child {
+            opacity: 1;
+        }
+
+        .news-section {
+            margin: 6rem 0;
+        }
+
+        .news-title, .projects-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .news-item, .project-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 2s ease-out, transform 2s ease-out;
+        }
+        
+        .news-item.visible, .project-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-headline {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .news-excerpt {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .header {
+                padding: 0.5rem 1rem;
+            }
+
+            .header-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .nav {
+                justify-content: center;
+                padding-left: 0;
+                gap: 1.5rem;
+                margin-left: 0;
+            }
+           
+            .nav a {
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+                        
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero {
+                padding-top: 6rem;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-section {
+                margin: 4rem 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .header {
+                padding: 0.5rem;
+            }
+            
+            .nav {
+                gap: 1rem;
+            }
+            
+            .nav a {
+                font-size: 0.8rem;
+            }
+            
+            .cta-button {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">D.</a>
+                <nav class="nav">
+                    <a href="about.html">About</a>
+                    <a href="design.html">Design</a>
+                    <a href="research.html">Research</a>
+                </nav>
+                <a href="#contact" class="cta-button">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title" id="hero-text">
+                        <span>Seamless</span>
+                        <span>UX Design:</span>
+                        <span>Enriching</span>
+                        <span>Everyday Life</span>
+                        <span>by Integrating</span>
+                        <span>Invisible Technologies</span>
+                        <span>into</span>
+                        <span>the Familiar</span>
+                    </h1>
+                </div>
+            </section>
+
+            <section class="news-section">
+                <h2 class="news-title">Latest News</h2>
+                <div class="news-grid">
+                    <article class="news-item">
+                        <div class="news-date">November 20, 2024</div>
+                        <h3 class="news-headline">Panel Speaker at Korea Robotics Society Annual Conference Workshop</h3>
+                        <p class="news-excerpt">I am honored to be invited as a panel speaker at the Korea Robotics Society's social robot workshop. The talk will delve into 'Invisible Robot Technologies', focusing on how unobtrusive product-type robots can seamlessly assist people in their daily lives.</p>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">November 9, 2024</div>
+                        <h3 class="news-headline">Upcoming Book Chapter Publication</h3>
+                        <p class="news-excerpt">We are excited to share that our book chapter titled, "The Robotization Design of Everyday Things", will be published on November 28th in the upcoming volume Designing Interactions with Robots: Methods and Perspectives, CRC Press, 2024.</p>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">October 25, 2024</div>
+                        <h3 class="news-headline">Award-Winning Prototype at ICSR 2024</h3>
+                        <p class="news-excerpt">We are thrilled to announce that our innovative project, oOoBOT, received the Innovative Prototype Award at the ICSR 2024 Robot Design Competition. oOoBOT is a versatile robotic furniture system that adapts its size and functionality to meet users' needs in various situations.</p>
+                    </article>
+                    <article class="news-item">
+                        <div class="news-date">March 10, 2024</div>
+                        <h3 class="news-headline">New Research Paper Published in HRI 2024</h3>
+                        <p class="news-excerpt">Our latest research, "Collabot: A Robotic System That Assists Library Users Through Collaboration Between Robots", has been accepted for presentation at HRI 2024. This study explores collaborative interactions between robots and users in library environments.</p>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const titleSpans = document.querySelectorAll('.hero-title span');
+            const spanTriggerPoints = Array.from(titleSpans).slice(1).map(span => {
+                const rect = span.getBoundingClientRect();
+                return rect.top + window.pageYOffset - window.innerHeight / 2;
+            });
+
+            function handleScroll() {
+                const scrollPosition = window.pageYOffset;
+                
+                spanTriggerPoints.forEach((triggerPoint, index) => {
+                    const span = titleSpans[index + 1];
+                    
+                    if (scrollPosition > triggerPoint) {
+                        span.style.opacity = '1';
+                    } else {
+                        span.style.opacity = '0';
+                    }
+                });
+            }
+            
+            handleScroll();
+            
+            window.addEventListener('scroll', handleScroll);
+            
+            window.addEventListener('resize', () => {
+                spanTriggerPoints = Array.from(titleSpans).slice(1).map(span => {
+                    const rect = span.getBoundingClientRect();
+                    return rect.top + window.pageYOffset - window.innerHeight / 2;
+                });
+            });
+        });            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            const items = document.querySelectorAll('.news-item, .project-item');
+            items.forEach(item => observer.observe(item));
+    </script>
+</body>
+</html>
