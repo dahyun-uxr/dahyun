@@ -73,58 +73,72 @@
             font-size: 0.9rem;
         }
 
-        .about-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 8rem 10.2rem 4rem;
+        .hero {
+            min-height: 100vh;
+            padding-top: 8rem;
         }
 
-        .about-header {
-            margin-bottom: 6rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+        .hero-content {
+            padding-top: 2rem;
         }
 
-        .role-title {
+        .hero-title {
             font-size: 6rem;
             line-height: 1.2;
             font-weight: 700;
             margin-bottom: 2rem;
-            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+            text-align: left;
         }
-
-        .role-title span {
+        
+        .hero-title span {
             display: block;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
-        .role-title span:first-child {
+        
+        .hero-title span:first-child {
             opacity: 1;
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease forwards 0.6s;
-            margin-bottom: 6rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+        .about-section {
+            margin: 6rem 0;
         }
 
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #333;
-        }
-
-        .about-text p {
+        .about-title {
+            font-size: 1.5rem;
+            font-weight: 500;
             margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .about-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 2s ease-out, transform 2s ease-out;
+        }
+        
+        .about-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .about-headline {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .about-excerpt {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.5;
         }
 
         .experience-section {
@@ -160,15 +174,6 @@
             font-weight: 700;
         }
 
-        .award-list {
-            list-style: none;
-        }
-
-        .award-item {
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
         .download-cv {
             display: inline-flex;
             align-items: center;
@@ -194,17 +199,7 @@
             height: 16px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+     
         @media (max-width: 768px) {
             .container {
                 padding: 0 2rem;
@@ -218,7 +213,7 @@
                 margin-left: 2rem;
                 gap: 1.5rem;
             }
-            
+           
             .nav a {
                 font-size: 0.9rem;
             }
@@ -228,19 +223,26 @@
                 font-size: 0.8rem;
             }
 
-            .about-container {
-                padding: 6rem 2rem 2rem;
+            .logo {
+                font-size: 1.3rem;
             }
-
-            .role-title {
+                        
+            .hero-title {
                 font-size: 3rem;
             }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            
+            .hero {
+                padding-top: 6rem;
             }
 
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section {
+                margin: 4rem 0;
+            }
+            
             .experience-item {
                 grid-template-columns: 1fr;
                 margin-bottom: 1.5rem;
@@ -288,42 +290,55 @@
         </div>
     </header>
 
-    <main class="about-container">
-        <div class="about-header">
-            <h1 class="role-title">
-                <span>UX</span>
-                <span>Designer</span>
-                <span>+</span>
-                <span>HCI</span>
-                <span>/</span>
-                <span>HRI</span>
-                <span>Researcher</span>
-            </h1>
-        </div>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I am a UX designer and researcher with a deep focus on both Human-Robot Interaction (HRI) and Human-Computer Interaction (HCI). My work centers on designing meaningful and intuitive interactions that seamlessly integrate technology into everyday life, enhancing user experiences in subtle yet impactful ways.</p>
-            </div>
-            <div class="about-text">
-                <p>I have extensive experience across the entire design process—from user research and prototype development to user evaluations—having successfully executed these phases multiple times. My background in interaction design, robotics, and HCI enables me to bridge the gap between technical innovation and human-centered solutions.</p>
-            </div>
-        </div>        
-        <div class="about-header">
-            <h1 class="role-title">
-                <span>7 Awards</span>
-                <span>8 Journal Articles</span>
-                <span>25 Conference Papers</span>
-                <span>5 Patents</span>
-                <span>3 Exhibitions</span>
-                <span>1 Book Publication</span>
-            </h1>
-        </div>
-        <div class="award-list">
-            <div class="award-item">
-                <p>showcase my commitment to advancing the field. I am especially passionate about developing adaptive robotic systems that can respond naturally to diverse social contexts and user needs, pushing the boundaries of what's possible in both HRI and HCI design.</p>
-            </div>
-        </div>
-                
+    <main>
+        <div class="container">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title" id="hero-text">
+                        <span>UX</span>
+                        <span>Designer</span>
+                        <span>+</span>
+                        <span>HCI</span>
+                        <span>/</span>
+                        <span>HRI</span>
+                        <span>Researcher</span>
+                    </h1>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2 class="about-title">Dahyun</h2>
+                <div class="about-grid">
+                    <article class="about-item">
+                        <p class="about-excerpt">I am a UX designer and researcher with a deep focus on both Human-Robot Interaction (HRI) and Human-Computer Interaction (HCI). My work centers on designing meaningful and intuitive interactions that seamlessly integrate technology into everyday life, enhancing user experiences in subtle yet impactful ways.</p>
+                    </article>
+                    <article class="about-item">
+                        <p class="about-excerpt">I have extensive experience across the entire design process—from user research and prototype development to user evaluations—having successfully executed these phases multiple times. My background in interaction design, robotics, and HCI enables me to bridge the gap between technical innovation and human-centered solutions.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title" id="hero-text">
+                        <span>7 Awards</span>
+                        <span>8 Journal Articles</span>
+                        <span>25 Conference Papers</span>
+                        <span>5 Patents</span>
+                        <span>3 Exhibitions</span>
+                        <span>1 Book Publication</span>
+                    </h1>
+                </div>
+            </section>
+            
+            <section class="about-section">
+                <h2 class="about-title">Dahyun</h2>
+                <div class="about-grid">
+                    <article class="about-item">
+                        <h3 class="about-headline">showcase my commitment to advancing the field. I am especially passionate about developing adaptive robotic systems that can respond naturally to diverse social contexts and user needs, pushing the boundaries of what's possible in both HRI and HCI design.</h3>
+                    </article>
+                </div>
+            </section>
         <div class="experience-section">
             <h2 class="section-title">Experience</h2>
             <ul class="experience-list">
@@ -376,11 +391,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const titleSpans = document.querySelectorAll('.role-title span');
-            const locationSpans = document.querySelectorAll('.location span');
-            const allSpans = [...titleSpans, ...locationSpans];
-            
-            let spanTriggerPoints = Array.from(allSpans).slice(1).map(span => {
+            const titleSpans = document.querySelectorAll('.hero-title span');
+            const spanTriggerPoints = Array.from(titleSpans).slice(1).map(span => {
                 const rect = span.getBoundingClientRect();
                 return rect.top + window.pageYOffset - window.innerHeight / 2;
             });
@@ -389,7 +401,7 @@
                 const scrollPosition = window.pageYOffset;
                 
                 spanTriggerPoints.forEach((triggerPoint, index) => {
-                    const span = allSpans[index + 1];
+                    const span = titleSpans[index + 1];
                     
                     if (scrollPosition > triggerPoint) {
                         span.style.opacity = '1';
@@ -398,18 +410,29 @@
                     }
                 });
             }
-
+            
             handleScroll();
             
             window.addEventListener('scroll', handleScroll);
             
             window.addEventListener('resize', () => {
-                spanTriggerPoints = Array.from(allSpans).slice(1).map(span => {
+                spanTriggerPoints = Array.from(titleSpans).slice(1).map(span => {
                     const rect = span.getBoundingClientRect();
                     return rect.top + window.pageYOffset - window.innerHeight / 2;
                 });
             });
-        });
+        });            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            const items = document.querySelectorAll('.about-item, .project-item');
+            items.forEach(item => observer.observe(item));
     </script>
 </body>
 </html>
