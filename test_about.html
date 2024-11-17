@@ -143,14 +143,18 @@
 
         .experience-section {
             margin-top: 4rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease forwards 0.9s;
+            padding: 2rem 0;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        .experience-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
         .section-title {
             font-size: 1.5rem;
             font-weight: 500;
@@ -334,7 +338,7 @@
             <section class="about-section">
                 <div class="about-grid">
                     <article class="about-item">
-                        <h3 class="about-headline">showcase my commitment to advancing the field. I am especially passionate about developing adaptive robotic systems that can respond naturally to diverse social contexts and user needs, pushing the boundaries of what's possible in both HRI and HCI design.</h3>
+                        <p class="about-excerpt">showcase my commitment to advancing the field. I am especially passionate about developing adaptive robotic systems that can respond naturally to diverse social contexts and user needs, pushing the boundaries of what's possible in both HRI and HCI design.</p>
                     </article>
                 </div>
             </section>
