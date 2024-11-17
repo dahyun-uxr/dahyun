@@ -173,7 +173,7 @@
             max-width: 600px;
         }
 
-     
+
         @media (max-width: 768px) {
             .container, .projects-container {
                 padding: 0 2rem;
@@ -191,39 +191,44 @@
             .nav a {
                 font-size: 0.9rem;
             }
-
+        
             .cta-button {
                 padding: 0.4rem 0.8rem;
                 font-size: 0.8rem;
             }
-
+        
             .logo {
                 font-size: 1.3rem;
             }
                         
             .project-row {
                 flex-direction: column;
+                padding: 2rem;  /* 패딩값 수정 */
             }
-
+        
             .project-info {
-                padding: 2rem;
+                padding: 2rem 0;  /* 상하 패딩만 유지 */
                 order: 2;
             }
-
+        
             .project-image-container {
-                padding: 1rem;
+                padding: 0;  /* 패딩 제거 */
                 order: 1;
                 height: 300px;
             }
-
+        
             .project-title {
                 font-size: 2rem;
             }
         }
-        
+ 
         @media (max-width: 480px) {
             .container, .projects-container {
                 padding: 0 1rem;
+            }
+            
+            .project-row {
+                padding: 1rem;  
             }
             
             .nav {
