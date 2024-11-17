@@ -21,7 +21,7 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 5rem;  /* 패딩 값 수정 */
+            padding: 0 10.2rem;
         }
 
         .header {
@@ -75,6 +75,15 @@
 
         .design-grid {
             padding-top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .projects-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 10.2rem;
         }
 
         .project-row {
@@ -94,12 +103,12 @@
 
         .project-info {
             flex: 1.2;
-            padding: 2rem 0;  /* 좌우 패딩 제거 */
+            padding: 2rem 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-
+        
         .project-image-container {
             flex: 0.8;
             height: 300px;
@@ -165,8 +174,9 @@
             max-width: 600px;
         }
 
+     
         @media (max-width: 768px) {
-            .container {
+            .container, .projects-container {
                 padding: 0 2rem;
             }
             
@@ -197,12 +207,12 @@
             }
 
             .project-info {
-                padding: 2rem 0;
+                padding: 2rem;
                 order: 2;
             }
 
             .project-image-container {
-                padding: 1rem 0;  /* 좌우 패딩 제거 */
+                padding: 1rem;
                 order: 1;
                 height: 300px;
             }
@@ -213,7 +223,7 @@
         }
         
         @media (max-width: 480px) {
-            .container {
+            .container, .projects-container {
                 padding: 0 1rem;
             }
             
@@ -261,7 +271,7 @@
         </div>
     </header>
 
-    <main class="container design-grid">
+    <main class="design-grid">
         <div class="project-row">
             <div class="project-info">
                 <h2 class="project-title">oOoBOT</h2>
