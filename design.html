@@ -18,15 +18,24 @@
             overflow-x: hidden;
         }
 
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 10.2rem;
+        }
+
         .header {
             position: fixed;
             width: 100%;
-            padding: 1rem 2rem;
+            background: #ffffff;
+            z-index: 1000;
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #ffffff;
-            z-index: 1000;
+            padding: 1rem 0;
         }
 
         .logo {
@@ -41,7 +50,8 @@
             gap: 2.5rem;
             justify-content: center;
             flex-grow: 1;
-            text-align: center;
+            text-align: left;
+            margin-left: 2rem;
         }
 
         .nav a {
@@ -63,7 +73,6 @@
             font-size: 0.9rem;
         }
 
-        /* Design Page Specific Styles */
         .design-grid {
             padding-top: 100px;
             display: flex;
@@ -71,14 +80,19 @@
             gap: 0;
         }
 
+        .projects-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 10.2rem;
+        }
+
         .project-row {
             display: flex;
             width: 100%;
-            padding: 2rem 0;
+            padding: 2rem 11rem;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease, transform 0.8s ease;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .project-row.visible {
@@ -88,19 +102,19 @@
 
         .project-info {
             flex: 1.2;
-            padding: 2rem 4rem;
+            padding: 2rem 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-
+        
         .project-image-container {
             flex: 0.8;
             height: 300px;
             overflow: hidden;
             position: relative;
         }
-        
+
         .project-image {
             width: 100%;
             height: 100%;
@@ -126,6 +140,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+
         .project-tags {
             display: flex;
             gap: 0.5rem;
@@ -145,8 +160,10 @@
         }
 
         .tag-patent {
-            background-color: #000000;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #000;
+            border-radius: 100px;
         }
 
         .project-description {
@@ -156,40 +173,34 @@
             max-width: 600px;
         }
 
-        @media (max-width: 1024px) {
-            .project-info {
-                padding: 2rem;
-            }
-
-            .project-image-container {
-                height: 350px;
-            }
-        }
-
+     
         @media (max-width: 768px) {
-            .container {
+            .container, .projects-container {
                 padding: 0 2rem;
             }
-
-            .header {
-                padding: 0.5rem 1rem;
+            
+            .header-content {
+                padding: 0.5rem 0;
             }
             
             .nav {
-                justify-content: center; 
-                padding-left: 0;
-                gap: 1.5rem; 
+                margin-left: 2rem;
+                gap: 1.5rem;
             }
            
             .nav a {
                 font-size: 0.9rem;
             }
-            
+
             .cta-button {
                 padding: 0.4rem 0.8rem;
                 font-size: 0.8rem;
             }
 
+            .logo {
+                font-size: 1.3rem;
+            }
+                        
             .project-row {
                 flex-direction: column;
             }
@@ -211,16 +222,13 @@
         }
         
         @media (max-width: 480px) {
-            .container {
+            .container, .projects-container {
                 padding: 0 1rem;
             }
             
-            .header {
-                padding: 0.5rem;
-            }
-            
             .nav {
-                gap: 1rem;
+                margin-left: 0.5rem;
+                gap: 0.5rem;
             }
             
             .nav a {
@@ -228,10 +236,11 @@
             }
             
             .cta-button {
+                margin-right: -0.5rem;
                 padding: 0.3rem 0.6rem;
                 font-size: 0.7rem;
             }
-
+            
             .project-image-container {
                 height: 250px;
             }
@@ -248,13 +257,17 @@
 </head>
 <body>
     <header class="header">
-        <a href="index.html" class="logo">D.</a>
-        <nav class="nav">
-            <a href="about.html">About</a>
-            <a href="design.html">Design</a>
-            <a href="research.html">Research</a>
-        </nav>
-        <a href="#contact" class="cta-button">Contact</a>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">D.</a>
+                <nav class="nav">
+                    <a href="about.html">About</a>
+                    <a href="design.html">Design</a>
+                    <a href="research.html">Research</a>
+                </nav>
+                <a href="#contact" class="cta-button">Contact</a>
+            </div>
+        </div>
     </header>
 
     <main class="design-grid">
