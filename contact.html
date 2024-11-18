@@ -86,14 +86,29 @@
             height: 300px;
             border-radius: 50%;
             object-fit: cover;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
         }
 
+        .profile-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         .contact-content {
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
             opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .contact-content.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .contact-text {
@@ -220,5 +235,22 @@
             </div>
         </section>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const animatedElements = document.querySelectorAll('.profile-image, .contact-content');
+            animatedElements.forEach(element => observer.observe(element));
+        });
+    </script>
 </body>
 </html>
